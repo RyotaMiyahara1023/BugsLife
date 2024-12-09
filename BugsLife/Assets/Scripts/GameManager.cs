@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GamaManeger : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject _pause;
     // Start is called before the first frame update
