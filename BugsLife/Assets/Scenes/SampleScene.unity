@@ -675,6 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PausePanel: {fileID: 2141654634}
+  ScorePanel: {fileID: 580819131}
   Otaku:
   - {fileID: 986029053691507238, guid: a0d3738fcfc04df4d9669720b7765f95, type: 3}
   - {fileID: 7351804431263094712, guid: 62efd7a143945bc48b72851669d63990, type: 3}
@@ -1979,6 +1980,7 @@ GameObject:
   - component: {fileID: 1200549391}
   - component: {fileID: 1200549390}
   - component: {fileID: 1200549389}
+  - component: {fileID: 1200549392}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -2016,7 +2018,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2076,6 +2078,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200549387}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1200549392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200549387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f04978e8b6d37aa4583fbb12747a2d1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamemanager: {fileID: 431828978}
 --- !u!1 &1302682754
 GameObject:
   m_ObjectHideFlags: 0

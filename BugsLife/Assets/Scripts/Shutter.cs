@@ -39,18 +39,7 @@ public class Shutter : MonoBehaviour
             Red_Flash.SetActive(true);
             yield return new WaitForSeconds(0.05f);
             Red_Flash.SetActive(false);
-            if(conbo != conbo_check) {
-                Conbo.text = conbo + " conbo";
-                conbo_check = conbo;
-            }
-            else {
-                Conbo.text = null;
-                conbo = 0;
-                conbo_check = 0;
-            }
-            /*flash.conbo = 0;
-            yield return new WaitForSeconds(1f);
-            Conbo.text = null;*/
+            ConboCheck();
             break;
 
             case "Blue":
@@ -58,18 +47,7 @@ public class Shutter : MonoBehaviour
             Blue_Flash.SetActive(true);
             yield return new WaitForSeconds(0.05f);
             Blue_Flash.SetActive(false);
-            if(conbo != conbo_check) {
-                Conbo.text = conbo + " conbo";
-                conbo_check = conbo;
-            }
-            else {
-                Conbo.text = null;
-                conbo = 0;
-                conbo_check = 0;
-            }
-            /*flash.conbo = 0;
-            yield return new WaitForSeconds(1f);
-            Conbo.text = null;*/
+            ConboCheck();
             break;
 
             case "Green":
@@ -77,6 +55,12 @@ public class Shutter : MonoBehaviour
             Green_Flash.SetActive(true);
             yield return new WaitForSeconds(0.05f);
             Green_Flash.SetActive(false);
+            ConboCheck();
+            break;
+        }
+    }
+
+    void ConboCheck(){
             if(conbo != conbo_check) {
                 Conbo.text = conbo + " conbo";
                 conbo_check = conbo;
@@ -89,7 +73,5 @@ public class Shutter : MonoBehaviour
             /*flash.conbo = 0;
             yield return new WaitForSeconds(1f);
             Conbo.text = null;*/
-            break;
-        }
     }
 }

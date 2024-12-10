@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject PausePanel;
+    [SerializeField] GameObject ScorePanel;
     [SerializeField] GameObject[] Otaku = new GameObject[3];
     float time = 0f;
     public bool pause;
@@ -58,5 +59,11 @@ public class GameManager : MonoBehaviour
     {
         pause = false;
         PausePanel.SetActive(false);
+    }
+
+    public void GameOver()
+    {
+        pause = true;
+        ScorePanel.SetActive(true);
     }
 }
