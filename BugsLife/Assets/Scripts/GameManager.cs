@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject PausePanel;
     [SerializeField] GameObject ScorePanel;
     [SerializeField] GameObject[] Otaku = new GameObject[3];
+    public GameObject OtakuGenerater;
     float time = 0f;
     public bool pause;
     // Start is called before the first frame update
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
             int index = Random.Range(0, num.Count);
             int rnd = num[index];
 
-            Instantiate(Otaku[otaku_color], new Vector3( rnd - 5, 1.0f, 10.0f), Quaternion.identity);
+            Instantiate(Otaku[otaku_color], OtakuGenerater.transform.GetChild(rnd).transform.position, Quaternion.identity);
 
             num.RemoveAt(index);
         }
