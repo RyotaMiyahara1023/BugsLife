@@ -62,7 +62,7 @@ public class Shutter : MonoBehaviour
 
     void ConboCheck(){
             if(conbo != conbo_check) {
-                Conbo.text = conbo + " conbo";
+                Conbo.text = "<size=80>" + conbo + " </size><size=50>Conbo</size>";
                 conbo_check = conbo;
             }
             else {

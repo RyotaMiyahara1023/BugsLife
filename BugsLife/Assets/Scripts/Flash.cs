@@ -6,6 +6,7 @@ public class Flash : MonoBehaviour
 {
     public int conbo = 0;
     [SerializeField] Shutter shutter;
+    [SerializeField] Charge charge;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class Flash : MonoBehaviour
         if(otaku.gameObject.tag.Equals(this.gameObject.name)){
             Destroy(otaku.gameObject);
             shutter.conbo++;
+            charge.power++;
         }
         else conbo = 0;
     }
