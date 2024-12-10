@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject _pause;
+    [SerializeField] GameObject PausePanel;
     [SerializeField] GameObject[] Otaku = new GameObject[3];
     float time = 0f;
+    public bool pause;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +17,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-
-        if(time >= 1.5f){
-            Otaku_Generate();
+        if(!pause){
+            time += Time.deltaTime;
+            if(time >= 1.5f) Otaku_Generate();
         }
     }
 
@@ -50,11 +50,13 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
-        _pause.SetActive(true);
+        pause = true;
+        PausePanel.SetActive(true);
     }
 
     public void Restart()
     {
-        _pause.SetActive(false);
+        pause = false;
+        PausePanel.SetActive(false);
     }
 }

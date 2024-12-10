@@ -674,11 +674,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2126907fc01eb634ba85875c5cda442d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pause: {fileID: 2141654634}
+  PausePanel: {fileID: 2141654634}
   Otaku:
   - {fileID: 986029053691507238, guid: a0d3738fcfc04df4d9669720b7765f95, type: 3}
   - {fileID: 7351804431263094712, guid: 62efd7a143945bc48b72851669d63990, type: 3}
   - {fileID: 4116520437896104253, guid: 2f4721c1bde86ac408fed364d3fe77aa, type: 3}
+  pause: 0
 --- !u!4 &431828979
 Transform:
   m_ObjectHideFlags: 0
@@ -1535,6 +1536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gy_text: {fileID: 156125590}
+  gamemanager: {fileID: 431828978}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
