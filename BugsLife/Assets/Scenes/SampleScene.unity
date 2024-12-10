@@ -1134,6 +1134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conbo: 0
+  shutter: {fileID: 963194230}
 --- !u!1 &806480062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,6 +1554,7 @@ MonoBehaviour:
   Blue_Flash: {fileID: 2065859966}
   Green_Flash: {fileID: 1995594680}
   Conbo: {fileID: 1482853765}
+  conbo: 0
 --- !u!1 &1052922997
 GameObject:
   m_ObjectHideFlags: 0
@@ -3565,6 +3567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conbo: 0
+  shutter: {fileID: 963194230}
 --- !u!1 &2065859966
 GameObject:
   m_ObjectHideFlags: 0
@@ -3686,6 +3689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conbo: 0
+  shutter: {fileID: 963194230}
 --- !u!1 &2141654634
 GameObject:
   m_ObjectHideFlags: 0

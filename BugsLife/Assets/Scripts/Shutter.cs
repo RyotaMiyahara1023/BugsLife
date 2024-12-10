@@ -9,8 +9,9 @@ public class Shutter : MonoBehaviour
     [SerializeField] GameObject Blue_Flash;
     [SerializeField] GameObject Green_Flash;
     [SerializeField] Text Conbo;
-    Flash flash;
     string Flash_Color = null;
+    public int conbo = 0;
+    int conbo_check = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,43 +32,63 @@ public class Shutter : MonoBehaviour
 
      IEnumerator Flash()
     {
-        var c = 0;
 
         switch(Flash_Color){
             case "Red":
-            flash = Red_Flash.GetComponent<Flash>();
+            //flash = Red_Flash.GetComponent<Flash>();
             Red_Flash.SetActive(true);
             yield return new WaitForSeconds(0.05f);
             Red_Flash.SetActive(false);
-            c = flash.conbo;
-            Conbo.text = c + " conbo";
-            flash.conbo = 0;
+            if(conbo != conbo_check) {
+                Conbo.text = conbo + " conbo";
+                conbo_check = conbo;
+            }
+            else {
+                Conbo.text = null;
+                conbo = 0;
+                conbo_check = 0;
+            }
+            /*flash.conbo = 0;
             yield return new WaitForSeconds(1f);
-            Conbo.text = null;
+            Conbo.text = null;*/
             break;
 
             case "Blue":
-            flash = Blue_Flash.GetComponent<Flash>();
+            //flash = Blue_Flash.GetComponent<Flash>();
             Blue_Flash.SetActive(true);
             yield return new WaitForSeconds(0.05f);
             Blue_Flash.SetActive(false);
-            c = flash.conbo;
-            Conbo.text = c + " conbo";
-            flash.conbo = 0;
+            if(conbo != conbo_check) {
+                Conbo.text = conbo + " conbo";
+                conbo_check = conbo;
+            }
+            else {
+                Conbo.text = null;
+                conbo = 0;
+                conbo_check = 0;
+            }
+            /*flash.conbo = 0;
             yield return new WaitForSeconds(1f);
-            Conbo.text = null;
+            Conbo.text = null;*/
             break;
 
             case "Green":
-            flash = Green_Flash.GetComponent<Flash>();
+            //flash = Green_Flash.GetComponent<Flash>();
             Green_Flash.SetActive(true);
             yield return new WaitForSeconds(0.05f);
             Green_Flash.SetActive(false);
-            c = flash.conbo;
-            Conbo.text = c + " conbo";
-            flash.conbo = 0;
+            if(conbo != conbo_check) {
+                Conbo.text = conbo + " conbo";
+                conbo_check = conbo;
+            }
+            else {
+                Conbo.text = null;
+                conbo = 0;
+                conbo_check = 0;
+            }
+            /*flash.conbo = 0;
             yield return new WaitForSeconds(1f);
-            Conbo.text = null;
+            Conbo.text = null;*/
             break;
         }
     }

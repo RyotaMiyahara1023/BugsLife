@@ -5,6 +5,7 @@ using UnityEngine;
 public class Flash : MonoBehaviour
 {
     public int conbo = 0;
+    [SerializeField] Shutter shutter;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,14 +15,15 @@ public class Flash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnTriggerEnter(Collider otaku)
     {
         if(otaku.gameObject.tag.Equals(this.gameObject.name)){
             Destroy(otaku.gameObject);
-            conbo++;
+            shutter.conbo++;
         }
+        else conbo = 0;
     }
 }
