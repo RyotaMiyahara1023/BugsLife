@@ -1,17 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shutter : MonoBehaviour
 {
     [SerializeField] GameObject Red_Flash;
     [SerializeField] GameObject Blue_Flash;
     [SerializeField] GameObject Green_Flash;
-    /*Dictionary<GameObject, int> dic = new Dictionary<GameObject, int>(){
-        {Red_Flash, 1},
-        {Blue_Flash, 2},
-        {Green_Flash, 3},
-    };*/
+    [SerializeField] Text Conbo;
+    Flash flash;
     string Flash_Color = null;
     // Start is called before the first frame update
     void Start()
@@ -33,23 +31,43 @@ public class Shutter : MonoBehaviour
 
      IEnumerator Flash()
     {
+        var c = 0;
+
         switch(Flash_Color){
             case "Red":
+            flash = Red_Flash.GetComponent<Flash>();
             Red_Flash.SetActive(true);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
             Red_Flash.SetActive(false);
+            c = flash.conbo;
+            Conbo.text = c + " conbo";
+            flash.conbo = 0;
+            yield return new WaitForSeconds(1f);
+            Conbo.text = null;
             break;
 
             case "Blue":
+            flash = Blue_Flash.GetComponent<Flash>();
             Blue_Flash.SetActive(true);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
             Blue_Flash.SetActive(false);
+            c = flash.conbo;
+            Conbo.text = c + " conbo";
+            flash.conbo = 0;
+            yield return new WaitForSeconds(1f);
+            Conbo.text = null;
             break;
 
             case "Green":
+            flash = Green_Flash.GetComponent<Flash>();
             Green_Flash.SetActive(true);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
             Green_Flash.SetActive(false);
+            c = flash.conbo;
+            Conbo.text = c + " conbo";
+            flash.conbo = 0;
+            yield return new WaitForSeconds(1f);
+            Conbo.text = null;
             break;
         }
     }
