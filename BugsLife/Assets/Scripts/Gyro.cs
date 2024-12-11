@@ -38,10 +38,6 @@ public class Gyro : MonoBehaviour
 
     IEnumerator GyroCamera()
     {
-        var rotRH = Input.gyro.attitude;
-
-        rot = (new Quaternion(-rotRH.x, -rotRH.y, -rotRH.z, rotRH.w)) * Quaternion.Euler(90f, 0f, 0f);
-        rot.z = 0f;
 
         IEnumerator enumerator = Set_rot();
         yield return enumerator;
@@ -54,7 +50,10 @@ public class Gyro : MonoBehaviour
 
     IEnumerator Set_rot()
     {
+        var rotRH = Input.gyro.attitude;
+        rot = (new Quaternion(-rotRH.x, -rotRH.z, -rotRH.y, rotRH.w)) * Quaternion.Euler(90f, 0f, 0f);
+        //rot.z = 0f;
         transform.localRotation = rot;
-        yield return transform.localRotation;
+        yield return null;
     }
 }

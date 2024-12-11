@@ -5,13 +5,11 @@ using UnityEngine.UI;
 
 public class Shutter : MonoBehaviour
 {
-    [SerializeField] GameObject Red_Flash;
-    [SerializeField] GameObject Blue_Flash;
-    [SerializeField] GameObject Green_Flash;
     [SerializeField] Text Conbo;
     public int conbo = 0;
     int conbo_check = 0;
     public float Speed = 60f;
+    [SerializeField] Charge charge;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,55 +29,24 @@ public class Shutter : MonoBehaviour
 
     IEnumerator Flash(GameObject flash)
     {
-
-        /*switch(Flash_Color){
-            case "Red":
-            GameObject flash = Instantiate(Red_Flash, this.transform.position, Quaternion.identity);
-            Rigidbody rb = flash.GetComponent<Rigidbody>();
-            rb.AddForce(this.transform.forward * Speed); 
-            yield return new WaitForSeconds(3f);
-            Destroy(flash);
-            ConboCheck();
-            break;
-
-            case "Blue":
-            GameObject flash = Instantiate(Blue_Flash, this.transform.position, Quaternion.identity);
-            Rigidbody rb = flash.GetComponent<Rigidbody>();
-            rb.AddForce(this.transform.forward * Speed); 
-            yield return new WaitForSeconds(3f);
-            Destroy(flash);
-            ConboCheck();
-            break;
-
-            case "Green":
-            GameObject flash = Instantiate(Green_Flash, this.transform.position, Quaternion.identity);
-            Rigidbody rb = flash.GetComponent<Rigidbody>();
-            rb.AddForce(this.transform.forward * Speed); 
-            yield return new WaitForSeconds(3f);
-            Destroy(flash);
-            ConboCheck();
-            break;
-        }*/
-        GameObject f = Instantiate(flash, this.transform.position, Quaternion.identity);
+        GameObject f = Instantiate(flash, this.transform.position, this.transform.rotation);
         Rigidbody rb = f.GetComponent<Rigidbody>();
         rb.AddForce(this.transform.forward * Speed, ForceMode.Impulse); 
         yield return new WaitForSeconds(3f);
         Destroy(f);
-        //ConboCheck();
     }
 
-    void ConboCheck(){
-            if(conbo != conbo_check) {
-                //Conbo.text = "<size=80>" + conbo + " </size><size=50>Conbo</size>";
-                conbo_check = conbo;
-            }
-            else {
-                Conbo.text = null;
-                conbo = 0;
-                conbo_check = 0;
-            }
-            /*flash.conbo = 0;
-            yield return new WaitForSeconds(1f);
-            Conbo.text = null;*/
+    public void FinalFlash_Button(GameObject flash)
+    {
+        if(charge.FinalFlashGage.fillAmount == 1) StartCoroutine( FinalFlash(flash));
+        charge.power = 0;
+    }
+    IEnumerator FinalFlash(GameObject finalflash)
+    {
+        GameObject f = Instantiate(finalflash, this.transform.position, this.transform.rotation);
+        Rigidbody rb = f.GetComponent<Rigidbody>();
+        rb.AddForce(this.transform.forward * Speed, ForceMode.Impulse); 
+        yield return new WaitForSeconds(3f);
+        Destroy(f);
     }
 }

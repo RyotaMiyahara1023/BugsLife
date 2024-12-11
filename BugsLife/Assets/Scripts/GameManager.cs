@@ -52,18 +52,21 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        Time.timeScale = 0;
         pause = true;
         PausePanel.SetActive(true);
     }
 
     public void Restart()
     {
+        Time.timeScale = 1;
         pause = false;
         PausePanel.SetActive(false);
     }
 
     public void GameOver()
     {
+        Time.timeScale = 0;
         pause = true;
         ScorePanel.SetActive(true);
     }

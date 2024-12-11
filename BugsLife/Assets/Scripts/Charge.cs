@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Charge : MonoBehaviour
 {
-    [SerializeField] Image FinalFlashGage;
+    public Image FinalFlashGage;
     [SerializeField] Sprite[] Button_Image = new Sprite[2];
     public int power = 0;
     // Start is called before the first frame update

@@ -19786,8 +19786,9 @@ GameObject:
   - component: {fileID: 8355022046122955921}
   - component: {fileID: 2443633805263721440}
   - component: {fileID: 5835527759667867846}
+  - component: {fileID: -5774222688285587755}
   m_Layer: 0
-  m_Name: Final_Bullet
+  m_Name: Final
   m_TagString: Flash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19831,7 +19832,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5835527759667867846
 Rigidbody:
@@ -19860,6 +19861,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-5774222688285587755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4284320581303747168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49f202b63926ab49a0e5ea67bca670d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conbo: 0
 --- !u!1 &4400390020138986856
 GameObject:
   m_ObjectHideFlags: 0
