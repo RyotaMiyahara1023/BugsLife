@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Shutter : MonoBehaviour
 {
-    [SerializeField] Text Conbo;
+    [SerializeField] TextMeshProUGUI Conbo;
     public int conbo = 0;
     int conbo_check = 0;
     float Speed = 10f;
@@ -19,7 +20,7 @@ public class Shutter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Conbo.text = "<size=80>" + conbo + " </size><size=50>Conbo</size>";
+        Conbo.text = "<size=80>" + conbo + "</size><size=50>Conbo</size>";
     }
 
     public void Shutter_Moment(GameObject Flash_Color)
