@@ -33,7 +33,6 @@ public class FinalFlash : MonoBehaviour
         }
         else {
             Debug.Log("倒せない");
-            shutter.conbo = 0;
         }
     }
 }
