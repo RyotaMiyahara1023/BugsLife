@@ -7,6 +7,7 @@ TagManager:
   - Red
   - Blue
   - Green
+  - Flash
   layers:
   - Default
   - TransparentFX

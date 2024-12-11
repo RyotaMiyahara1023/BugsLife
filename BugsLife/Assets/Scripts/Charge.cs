@@ -7,7 +7,6 @@ public class Charge : MonoBehaviour
 {
     [SerializeField] Image FinalFlashGage;
     [SerializeField] Sprite[] Button_Image = new Sprite[2];
-    [SerializeField] Shutter shutter;
     public int power = 0;
     // Start is called before the first frame update
     void Start()

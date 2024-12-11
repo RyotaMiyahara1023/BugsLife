@@ -9,9 +9,9 @@ public class Shutter : MonoBehaviour
     [SerializeField] GameObject Blue_Flash;
     [SerializeField] GameObject Green_Flash;
     [SerializeField] Text Conbo;
-    string Flash_Color = null;
     public int conbo = 0;
     int conbo_check = 0;
+    public float Speed = 60f;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,48 +21,56 @@ public class Shutter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Conbo.text = "<size=80>" + conbo + " </size><size=50>Conbo</size>";
     }
 
-    public void Shutter_Moment(GameObject Shutter_Button)
+    public void Shutter_Moment(GameObject Flash_Color)
     {
-        Flash_Color = Shutter_Button.name;
-        StartCoroutine("Flash");
+        StartCoroutine( Flash(Flash_Color));
     }
 
-     IEnumerator Flash()
+    IEnumerator Flash(GameObject flash)
     {
 
-        switch(Flash_Color){
+        /*switch(Flash_Color){
             case "Red":
-            //flash = Red_Flash.GetComponent<Flash>();
-            Red_Flash.SetActive(true);
-            yield return new WaitForSeconds(0.05f);
-            Red_Flash.SetActive(false);
+            GameObject flash = Instantiate(Red_Flash, this.transform.position, Quaternion.identity);
+            Rigidbody rb = flash.GetComponent<Rigidbody>();
+            rb.AddForce(this.transform.forward * Speed); 
+            yield return new WaitForSeconds(3f);
+            Destroy(flash);
             ConboCheck();
             break;
 
             case "Blue":
-            //flash = Blue_Flash.GetComponent<Flash>();
-            Blue_Flash.SetActive(true);
-            yield return new WaitForSeconds(0.05f);
-            Blue_Flash.SetActive(false);
+            GameObject flash = Instantiate(Blue_Flash, this.transform.position, Quaternion.identity);
+            Rigidbody rb = flash.GetComponent<Rigidbody>();
+            rb.AddForce(this.transform.forward * Speed); 
+            yield return new WaitForSeconds(3f);
+            Destroy(flash);
             ConboCheck();
             break;
 
             case "Green":
-            //flash = Green_Flash.GetComponent<Flash>();
-            Green_Flash.SetActive(true);
-            yield return new WaitForSeconds(0.05f);
-            Green_Flash.SetActive(false);
+            GameObject flash = Instantiate(Green_Flash, this.transform.position, Quaternion.identity);
+            Rigidbody rb = flash.GetComponent<Rigidbody>();
+            rb.AddForce(this.transform.forward * Speed); 
+            yield return new WaitForSeconds(3f);
+            Destroy(flash);
             ConboCheck();
             break;
-        }
+        }*/
+        GameObject f = Instantiate(flash, this.transform.position, Quaternion.identity);
+        Rigidbody rb = f.GetComponent<Rigidbody>();
+        rb.AddForce(this.transform.forward * Speed, ForceMode.Impulse); 
+        yield return new WaitForSeconds(3f);
+        Destroy(f);
+        //ConboCheck();
     }
 
     void ConboCheck(){
             if(conbo != conbo_check) {
-                Conbo.text = "<size=80>" + conbo + " </size><size=50>Conbo</size>";
+                //Conbo.text = "<size=80>" + conbo + " </size><size=50>Conbo</size>";
                 conbo_check = conbo;
             }
             else {

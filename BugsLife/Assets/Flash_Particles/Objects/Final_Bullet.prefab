@@ -19788,7 +19788,7 @@ GameObject:
   - component: {fileID: 5835527759667867846}
   m_Layer: 0
   m_Name: Final_Bullet
-  m_TagString: Untagged
+  m_TagString: Flash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
