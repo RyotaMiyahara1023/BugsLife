@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,10 +10,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject ScorePanel;
     [SerializeField] TextMeshProUGUI ScoreText;
     [SerializeField] TextMeshProUGUI ScoreAddText;
+    [SerializeField] TextMeshProUGUI TimerText;
     [SerializeField] GameObject[] Otaku = new GameObject[3];
     public GameObject OtakuGenerater;
     float time = 0f;
+    float timer = 10f;
     public bool pause;
+    public bool clear;
     public int score;
     // Start is called before the first frame update
     void Start()
@@ -23,12 +27,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!pause){
+        if(!pause && !clear){
             time += Time.deltaTime;
+            timer -= Time.deltaTime;
             if(time >= 1.5f) Otaku_Generate();
         }
 
         ScoreText.text = score.ToString("D8");
+        TimerText.text = ((int)timer/60).ToString() + ":" + ((int)timer%60).ToString("D2");
+
+        if(timer <= 0f && !clear) GameClear();
     }
 
     void Otaku_Generate()
@@ -73,10 +81,17 @@ public class GameManager : MonoBehaviour
         PausePanel.SetActive(false);
     }
 
+    public void GameClear()
+    {
+        Time.timeScale = 0;
+        clear = true;
+        ScorePanel.SetActive(true);
+        //GameObject.Find("Manager").GetComponent<Ranking>().SetRank(score);
+    }
+
     public void GameOver()
     {
         Time.timeScale = 0;
-        pause = true;
         ScorePanel.SetActive(true);
     }
 
@@ -86,5 +101,15 @@ public class GameManager : MonoBehaviour
         ScoreAddText.text = "+" + scoreAdd.ToString();
         yield return new WaitForSeconds(0.1f);
         if(scorecheck == score)ScoreAddText.text = null;
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
+
+    public void BackTitle()
+    {
+        SceneManager.LoadScene("TitleScene");
     }
 }

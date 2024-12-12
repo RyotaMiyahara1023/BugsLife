@@ -16,9 +16,9 @@ public class FinalFlash : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.Rotate(0,0,3*Time.timeScale);
+        transform.Rotate(0,0,3);
     }
 
     void OnTriggerEnter(Collider otaku)
