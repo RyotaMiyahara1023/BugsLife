@@ -34,9 +34,12 @@ public class GameManager : MonoBehaviour
         }
 
         ScoreText.text = score.ToString("D8");
-        TimerText.text = ((int)timer/60).ToString() + ":" + ((int)timer%60).ToString("D2");
+        TimerText.text = ((int)timer/60).ToString() + ":" + ((int)(timer%60) + 1).ToString("D2");
 
-        if(timer <= 0f && !clear) GameClear();
+        if(timer < 0f && !clear) {
+            TimerText.text = "0:00";
+            GameClear();
+        }
     }
 
     void Otaku_Generate()

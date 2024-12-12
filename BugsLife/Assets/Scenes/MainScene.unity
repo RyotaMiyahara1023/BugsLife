@@ -1746,12 +1746,14 @@ MonoBehaviour:
   ScorePanel: {fileID: 580819131}
   ScoreText: {fileID: 215885104}
   ScoreAddText: {fileID: 1014905121}
+  TimerText: {fileID: 1811676278}
   Otaku:
   - {fileID: 986029053691507238, guid: a0d3738fcfc04df4d9669720b7765f95, type: 3}
   - {fileID: 7351804431263094712, guid: 62efd7a143945bc48b72851669d63990, type: 3}
   - {fileID: 4116520437896104253, guid: 2f4721c1bde86ac408fed364d3fe77aa, type: 3}
   OtakuGenerater: {fileID: 193013194}
   pause: 0
+  clear: 0
   score: 0
 --- !u!4 &431828979
 Transform:
