@@ -24,7 +24,7 @@ public class Gyro : MonoBehaviour
             rot = (new Quaternion(-rotRH.x, -rotRH.y, -rotRH.z, rotRH.w)) * Quaternion.Euler(90f, 0f, 0f);
             rot.z = 0f;
             transform.localRotation = rot;*/
-            //StartCoroutine("GyroCamera");
+            StartCoroutine("GyroCamera");
 
             /*if(!rot_set){
                 rot_set = true;

@@ -7,6 +7,7 @@ using TMPro;
 public class Shutter : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI Conbo;
+    [SerializeField] Image Conbo_Back;
     public int conbo = 0;
     int conbo_check = 0;
     float Speed = 10f;
@@ -20,7 +21,11 @@ public class Shutter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Conbo.text = "<size=80>" + conbo + "</size><size=50>Conbo</size>";
+        if(conbo != 0){
+            Conbo_Back.GetComponent<RectTransform>().anchoredPosition = new Vector2(-380 + (((int)Mathf.Log10(conbo))*50), 0f);
+            Conbo.text = "<size=80>" + conbo + "</size><size=50>Conbo</size>";
+        }
+        else Conbo.text = null;
     }
 
     public void Shutter_Moment(GameObject Flash_Color)
