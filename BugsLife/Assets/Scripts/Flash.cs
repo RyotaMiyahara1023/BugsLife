@@ -7,12 +7,15 @@ public class Flash : MonoBehaviour
     public int conbo = 0;
     Shutter shutter;
     Charge charge;
+    GameManager gamemanager;
     float time = 0f;
+    public int scoreAdd;
     // Start is called before the first frame update
     void Start()
     {
         shutter = GameObject.Find("Main Camera").GetComponent<Shutter>();
         charge = GameObject.Find("Final_Flash").GetComponent<Charge>();
+        gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -34,7 +37,10 @@ public class Flash : MonoBehaviour
             Destroy(gameObject);
             Debug.Log("倒せた");
             shutter.conbo++;
+            scoreAdd = 100*((shutter.conbo/10)+1);
+            gamemanager.score += scoreAdd;
             charge.power++;
+            gamemanager.StartCoroutine("ScorePlus", scoreAdd);
         }
         else if(otaku.gameObject.name.Equals("Capsule")){
             Debug.Log("プレイヤーです");

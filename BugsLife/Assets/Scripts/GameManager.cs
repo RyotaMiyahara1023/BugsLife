@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject PausePanel;
     [SerializeField] GameObject ScorePanel;
+    [SerializeField] TextMeshProUGUI ScoreText;
+    [SerializeField] TextMeshProUGUI ScoreAddText;
     [SerializeField] GameObject[] Otaku = new GameObject[3];
     public GameObject OtakuGenerater;
     float time = 0f;
     public bool pause;
+    public int score;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +27,13 @@ public class GameManager : MonoBehaviour
             time += Time.deltaTime;
             if(time >= 1.5f) Otaku_Generate();
         }
+
+        ScoreText.text = score.ToString("D8");
     }
 
     void Otaku_Generate()
     {
-        int otaku_kazu = Random.Range(1, 4);
+        /*int otaku_kazu = Random.Range(1, 4);
 
         List<int> num = new List<int>();
         for (int i = 0; i <= 10; i++) {
@@ -45,7 +51,10 @@ public class GameManager : MonoBehaviour
             num.RemoveAt(index);
         }
 
-        num.Clear();
+        num.Clear();*/
+
+        int otaku_color = Random.Range(0, 3);
+        Instantiate(Otaku[otaku_color], OtakuGenerater.transform.GetChild(6).transform.position, Quaternion.identity);
 
         time = 0f;
     }
@@ -69,5 +78,13 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         pause = true;
         ScorePanel.SetActive(true);
+    }
+
+    public IEnumerator ScorePlus(int scoreAdd)
+    {
+        var scorecheck = score;
+        ScoreAddText.text = "+" + scoreAdd.ToString();
+        yield return new WaitForSeconds(0.1f);
+        if(scorecheck == score)ScoreAddText.text = null;
     }
 }
