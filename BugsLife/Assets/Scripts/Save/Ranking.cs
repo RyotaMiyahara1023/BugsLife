@@ -14,8 +14,8 @@ public class Ranking : MonoBehaviour
     //-------------------------------------------------------------------
     public void DataLoad()
     {
-        data = GetComponent<DataManager>().data;            // セーブデータをDataManagerから参照
         SceneManager.LoadScene("TitleScene");
+        data = GetComponent<DataManager>().data;            // セーブデータをDataManagerから参照
 
         /*for (int i = 0; i < rankCnt; i++) {
             Transform rankChilds = GameObject.Find("RankTexts").transform.GetChild(i);      // 子オブジェクト取得

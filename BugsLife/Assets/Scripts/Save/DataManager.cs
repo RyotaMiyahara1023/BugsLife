@@ -23,13 +23,16 @@ public class DataManager : MonoBehaviour
         }
 
         // ファイルを読み込んでdataに格納
-        data = Load(filepath);          
+        data = Load(filepath);   
+        
+        ranking.DataLoad();       
     }
 
     //-------------------------------------------------------------------
     // jsonとしてデータを保存
     void Save(SaveData data)
     {
+        DontDestroyOnLoad(gameObject);
         string json = JsonUtility.ToJson(data);                 // jsonとして変換
         StreamWriter wr = new StreamWriter(filepath, false);    // ファイル書き込み指定
         wr.WriteLine(json);                                     // json変換した情報を書き込み
@@ -44,8 +47,6 @@ public class DataManager : MonoBehaviour
         rd.Close();                                             // ファイル閉じる
                                                                 
         return JsonUtility.FromJson<SaveData>(json);            // jsonファイルを型に戻して返す
-
-        ranking.DataLoad();
     }
 
     //-------------------------------------------------------------------
