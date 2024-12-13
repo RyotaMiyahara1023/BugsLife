@@ -8,17 +8,24 @@ public class Charge : MonoBehaviour
     public Image FinalFlashGage;
     [SerializeField] Sprite[] Button_Image = new Sprite[2];
     public int power = 0;
+    AudioSource audiosource;
+    [SerializeField] AudioClip[] ChargeSE = new AudioClip[8];
     // Start is called before the first frame update
     void Start()
     {
-        
+        audiosource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        FinalFlashGage.fillAmount = (float)(power) / 10;
+        FinalFlashGage.fillAmount = (float)(power) / 8;
         if(FinalFlashGage.fillAmount < 1) this.gameObject.GetComponent<Image>().sprite = Button_Image[0];
         else this.gameObject.GetComponent<Image>().sprite = Button_Image[1];
+    }
+
+    public void SE(){
+        if(FinalFlashGage.fillAmount <= 1)  audiosource.PlayOneShot(ChargeSE[power - 1]);
+        Debug.Log(power);
     }
 }

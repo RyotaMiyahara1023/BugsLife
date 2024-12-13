@@ -41,6 +41,7 @@ public class Flash : MonoBehaviour
             scoreAdd = 100*((shutter.conbo/10)+1);
             gamemanager.score += scoreAdd;
             charge.power++;
+            charge.SE();
             gamemanager.StartCoroutine("ScorePlus", scoreAdd);
         }
         else if(otaku.gameObject.name.Equals("Capsule")){
