@@ -16,6 +16,10 @@ public class DataManager : MonoBehaviour
         // パス名取得
 #if UNITY_EDITOR
         filepath = Application.dataPath + "/" + fileName;
+#elif UNITY_IOS
+        filepath = Application.persistentDataPath+ "/" + fileName;
+#elif UNITY_ANDROID
+        filepath = Application.streamingAssetsPath+ "/" + fileName;
 #endif   
 
         // ファイルがないとき、ファイル作成
