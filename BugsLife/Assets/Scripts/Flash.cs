@@ -16,6 +16,7 @@ public class Flash : MonoBehaviour
         shutter = GameObject.Find("Main Camera").GetComponent<Shutter>();
         charge = GameObject.Find("Final_Flash").GetComponent<Charge>();
         gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        GetComponent<Renderer>().sortingOrder = 1;
     }
 
     // Update is called once per frame

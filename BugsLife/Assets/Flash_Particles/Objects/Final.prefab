@@ -19874,6 +19874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conbo: 0
+  scoreAdd: 0
 --- !u!1 &4400390020138986856
 GameObject:
   m_ObjectHideFlags: 0
