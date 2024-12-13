@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Ranking : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Ranking : MonoBehaviour
     const int   rankCnt = SaveData.rankCnt;                 // ランキング数
 
     /* コンポーネント取得用 */
-    Text[]      rankTexts = new Text[rankCnt];              // ランキングのテキスト
+    TextMeshProUGUI[] rankTexts = new TextMeshProUGUI[rankCnt];              // ランキングのテキスト
     SaveData    data;                                       // 参照するセーブデータ
 
     //-------------------------------------------------------------------
@@ -30,7 +31,7 @@ public class Ranking : MonoBehaviour
     {
         for (int i = 0; i < rankCnt; i++) {
             Transform rankChilds = GameObject.Find("RankTexts").transform.GetChild(i);
-            rankTexts[i] = rankChilds.GetComponent<Text>();   
+            rankTexts[i] = rankChilds.GetComponent<TextMeshProUGUI>();   
             rankTexts[i].text = data.rank[i].ToString("D8");
         }
     }
