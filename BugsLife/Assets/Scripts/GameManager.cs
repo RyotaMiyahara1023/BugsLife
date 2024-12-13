@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
@@ -12,11 +13,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI ScoreAddText;
     [SerializeField] TextMeshProUGUI TimerText;
     [SerializeField] TextMeshProUGUI GameOverText;
+    [SerializeField] TextMeshProUGUI ResultScoreText;
     [SerializeField] GameObject[] Otaku = new GameObject[3];
     [SerializeField] GameObject[] ScoreScreen = new GameObject[2];
+    [SerializeField] Sprite[] Back = new Sprite[2];
+    [SerializeField] Image BackImage;
+    [SerializeField] GameObject ResultScoreImage;
+    [SerializeField] GameObject StreetNameImage;
     public GameObject OtakuGenerater;
     float time = 0f;
-    float timer = 1000f;
+    float timer = 10f;
     public bool pause;
     public bool clear;
     public bool gameover;
@@ -99,6 +105,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         clear = true;
         GameOverText.text = "Success!!";
+        ResultScoreText.text = "Score " + score.ToString("D8");
+        BackImage.sprite = Back[0];
+        ResultScoreImage.SetActive(true);
+        StreetNameImage.SetActive(true);
         ScorePanel.SetActive(true);
         GameObject.Find("Manager").GetComponent<Ranking>().SetRank(score);
     }
@@ -108,6 +118,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         gameover = true;
         GameOverText.text = "Failed…";
+        ResultScoreText.text = "Score " + score.ToString("D8");
+        BackImage.sprite = Back[1];
+        ResultScoreImage.SetActive(false);
+        StreetNameImage.SetActive(false);
         ScorePanel.SetActive(true);
     }
 

@@ -38,11 +38,11 @@ public class Shutter : MonoBehaviour
             if(flash){
                 /*Filter.color += new Color32 (0, 0, 0, 2);
                 if(Filter.color == new Color32 (0, 0, 0, 240)) flash = false;*/
-                RenderSettings.fogDensity += Time.deltaTime;
+                RenderSettings.fogDensity += 0.2f*Time.deltaTime;
                 if(RenderSettings.fogDensity >= 0.25f) flash = false;
             }
             else if(flashattack){
-                RenderSettings.fogDensity += 2*Time.deltaTime;
+                RenderSettings.fogDensity += Time.deltaTime;
                 if(RenderSettings.fogDensity >= 0.25f) flashattack = false;
             }
 
