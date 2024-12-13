@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI TimerText;
     [SerializeField] TextMeshProUGUI GameOverText;
     [SerializeField] GameObject[] Otaku = new GameObject[3];
+    [SerializeField] GameObject[] ScoreScreen = new GameObject[2];
     public GameObject OtakuGenerater;
     float time = 0f;
     float timer = 10f;
@@ -41,6 +42,11 @@ public class GameManager : MonoBehaviour
         if(timer < 0f && !clear) {
             TimerText.text = "0:00";
             GameClear();
+        }
+
+        if((Input.GetMouseButtonDown(0) && ScoreScreen[0].activeSelf) && (clear || gameover)){
+            ScoreScreen[0].SetActive(false);
+            ScoreScreen[1].SetActive(true);
         }
     }
 
@@ -92,8 +98,8 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
         clear = true;
+        GameOverText.text = "Success!!";
         ScorePanel.SetActive(true);
-        GameOverText.text = "ライブ成功!!!!!";
         //GameObject.Find("Manager").GetComponent<Ranking>().SetRank(score);
     }
 
@@ -101,8 +107,8 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
         gameover = true;
+        GameOverText.text = "Failed…";
         ScorePanel.SetActive(true);
-        GameOverText.text = "ライブ失敗…";
     }
 
     public IEnumerator ScorePlus(int scoreAdd)
