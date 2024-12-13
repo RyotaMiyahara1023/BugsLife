@@ -9,7 +9,7 @@ public class Charge : MonoBehaviour
     [SerializeField] Sprite[] Button_Image = new Sprite[2];
     public int power = 0;
     AudioSource audiosource;
-    [SerializeField] AudioClip[] ChargeSE = new AudioClip[8];
+    [SerializeField] AudioClip[] ChargeSE = new AudioClip[9];
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +25,12 @@ public class Charge : MonoBehaviour
     }
 
     public void SE(){
-        if(FinalFlashGage.fillAmount <= 1)  audiosource.PlayOneShot(ChargeSE[power - 1]);
+        if(power == 8) {
+            audiosource.PlayOneShot(ChargeSE[7]);
+            audiosource.PlayOneShot(ChargeSE[8]);
+        }
+        else if(power < 8) audiosource.PlayOneShot(ChargeSE[power - 1]);
+        else audiosource.PlayOneShot(ChargeSE[7]);
         Debug.Log(power);
     }
 }

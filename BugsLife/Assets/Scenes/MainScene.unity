@@ -675,6 +675,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 26384f3c3ccc52b4786e1fcb3d7fb055, type: 3}
   - {fileID: 8300000, guid: 4665628c9c5a5b74c89fe45c5c9deda4, type: 3}
   - {fileID: 8300000, guid: 9217e42a0c9ec8940bae017b0a7e1502, type: 3}
+  - {fileID: 8300000, guid: 60b42859edc9c19459bfaadb91e56d64, type: 3}
 --- !u!82 &97085106
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5069,6 +5070,7 @@ MonoBehaviour:
   Conbo_Back: {fileID: 933758614}
   Filter: {fileID: 217749151}
   ReloadImage: {fileID: 765402039}
+  ScoreCharge: {fileID: 1498497729}
   conbo: 0
   charge: {fileID: 97085105}
   gamemanager: {fileID: 431828978}
@@ -5168,7 +5170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.5130332, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7333,8 +7335,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 420, y: -260}
-  m_SizeDelta: {x: 800, y: 50}
+  m_AnchoredPosition: {x: 220, y: -260}
+  m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1498497729
 MonoBehaviour:
@@ -7381,8 +7383,8 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
+  m_MaxValue: 10
+  m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:

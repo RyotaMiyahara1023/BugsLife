@@ -10,6 +10,7 @@ public class Shutter : MonoBehaviour
     [SerializeField] Image Conbo_Back;
     [SerializeField] Image Filter;
     [SerializeField] Image ReloadImage;
+    [SerializeField] Slider ScoreCharge;
     public int conbo = 0;
     int conbo_check = 0;
     float Speed = 10f;
@@ -52,6 +53,8 @@ public class Shutter : MonoBehaviour
             }
             else reload = true;
         }
+
+        ScoreCharge.value = (int)(conbo%10);
     }
 
     public void Shutter_Moment(GameObject Flash_Color)
