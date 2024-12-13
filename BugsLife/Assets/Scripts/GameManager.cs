@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] Otaku = new GameObject[3];
     public GameObject OtakuGenerater;
     float time = 0f;
-    float timer = 999f;
+    float timer = 10f;
     public bool pause;
     public bool clear;
     public bool gameover;
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     void Otaku_Generate()
     {
-        int otaku_kazu = Random.Range(1, 4);
+        /*int otaku_kazu = Random.Range(1, 4);
 
         List<int> num = new List<int>();
         for (int i = 0; i <= 10; i++) {
@@ -66,31 +66,31 @@ public class GameManager : MonoBehaviour
 
         num.Clear();
 
-        time = 0f;
+        time = 0f;*/
 
-        /*int otaku_color = Random.Range(0, 3);
+        int otaku_color = Random.Range(0, 3);
         Instantiate(Otaku[otaku_color], OtakuGenerater.transform.GetChild(6).transform.position, Quaternion.identity);
 
-        time = 0f;*/
+        time = 0f;
     }
 
     public void Pause()
     {
-        //Time.timeScale = 0;
+        Time.timeScale = 0;
         pause = true;
         PausePanel.SetActive(true);
     }
 
     public void Restart()
     {
-        //Time.timeScale = 1;
+        Time.timeScale = 1;
         pause = false;
         PausePanel.SetActive(false);
     }
 
     public void GameClear()
     {
-        //Time.timeScale = 0;
+        Time.timeScale = 0;
         clear = true;
         ScorePanel.SetActive(true);
         GameOverText.text = "ライブ成功!!!!!";
@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        //Time.timeScale = 0;
+        Time.timeScale = 0;
         gameover = true;
         ScorePanel.SetActive(true);
         GameOverText.text = "ライブ失敗…";
