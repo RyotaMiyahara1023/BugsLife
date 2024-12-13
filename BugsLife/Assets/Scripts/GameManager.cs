@@ -121,11 +121,13 @@ public class GameManager : MonoBehaviour
 
     public void Retry()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainScene");
     }
 
     public void BackTitle()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("TitleScene");
     }
 }
