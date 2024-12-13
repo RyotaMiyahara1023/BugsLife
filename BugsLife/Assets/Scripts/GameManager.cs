@@ -11,12 +11,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI ScoreText;
     [SerializeField] TextMeshProUGUI ScoreAddText;
     [SerializeField] TextMeshProUGUI TimerText;
+    [SerializeField] TextMeshProUGUI GameOverText;
     [SerializeField] GameObject[] Otaku = new GameObject[3];
     public GameObject OtakuGenerater;
     float time = 0f;
     float timer = 999f;
     public bool pause;
     public bool clear;
+    public bool gameover;
     public int score;
     // Start is called before the first frame update
     void Start()
@@ -74,30 +76,33 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         pause = true;
         PausePanel.SetActive(true);
     }
 
     public void Restart()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         pause = false;
         PausePanel.SetActive(false);
     }
 
     public void GameClear()
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         clear = true;
         ScorePanel.SetActive(true);
+        GameOverText.text = "ライブ成功!!!!!";
         //GameObject.Find("Manager").GetComponent<Ranking>().SetRank(score);
     }
 
     public void GameOver()
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
+        gameover = true;
         ScorePanel.SetActive(true);
+        GameOverText.text = "ライブ失敗…";
     }
 
     public IEnumerator ScorePlus(int scoreAdd)

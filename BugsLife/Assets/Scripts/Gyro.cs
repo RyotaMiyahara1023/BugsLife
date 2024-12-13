@@ -18,7 +18,7 @@ public class Gyro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!gamemanager.pause && !gamemanager.clear && Input.gyro.enabled){
+        if(!gamemanager.pause && !gamemanager.clear && !gamemanager.gameover && Input.gyro.enabled){
             /*var rotRH = Input.gyro.attitude;
 
             rot = (new Quaternion(-rotRH.x, -rotRH.y, -rotRH.z, rotRH.w)) * Quaternion.Euler(90f, 0f, 0f);

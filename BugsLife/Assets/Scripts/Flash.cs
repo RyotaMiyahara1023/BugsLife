@@ -21,7 +21,7 @@ public class Flash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!gamemanager.pause && !gamemanager.clear){
+        if(!gamemanager.pause && !gamemanager.clear && !gamemanager.gameover){
             time += Time.deltaTime;
             if(time >= 3f) {
                 shutter.conbo = 0;

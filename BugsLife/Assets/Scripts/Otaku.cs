@@ -15,6 +15,6 @@ public class Otaku : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!gamemanager.pause && !gamemanager.clear) transform.position = Vector3.MoveTowards(transform.position, new Vector3(0f, 1f, 0f), speed * Time.deltaTime);
+        if(!gamemanager.pause && !gamemanager.clear && !gamemanager.gameover) transform.position = Vector3.MoveTowards(transform.position, new Vector3(0f, 1f, 0f), speed * Time.deltaTime);
     }
 }
