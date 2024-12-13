@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
         clear = true;
         GameOverText.text = "Success!!";
         ScorePanel.SetActive(true);
-        //GameObject.Find("Manager").GetComponent<Ranking>().SetRank(score);
+        GameObject.Find("Manager").GetComponent<Ranking>().SetRank(score);
     }
 
     public void GameOver()
