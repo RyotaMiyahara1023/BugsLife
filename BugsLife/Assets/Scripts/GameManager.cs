@@ -27,10 +27,13 @@ public class GameManager : MonoBehaviour
     public bool clear;
     public bool gameover;
     public int score;
+    AudioSource audiosource;
+    [SerializeField] AudioClip PauseSE;
+    [SerializeField] AudioClip CancelSE;
     // Start is called before the first frame update
     void Start()
     {
-        
+        audiosource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -90,6 +93,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
         pause = true;
+        audiosource.PlayOneShot(PauseSE);
         PausePanel.SetActive(true);
     }
 
@@ -98,6 +102,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         pause = false;
         PausePanel.SetActive(false);
+        audiosource.PlayOneShot(CancelSE);
     }
 
     public void GameClear()
