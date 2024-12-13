@@ -12,6 +12,7 @@ public class DataManager : MonoBehaviour
     // 開始時にファイルチェック、読み込み
     void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         // パス名取得
 #if UNITY_EDITOR
         filepath = Application.dataPath + "/" + fileName;
@@ -32,7 +33,6 @@ public class DataManager : MonoBehaviour
     // jsonとしてデータを保存
     void Save(SaveData data)
     {
-        DontDestroyOnLoad(gameObject);
         string json = JsonUtility.ToJson(data);                 // jsonとして変換
         StreamWriter wr = new StreamWriter(filepath, false);    // ファイル書き込み指定
         wr.WriteLine(json);                                     // json変換した情報を書き込み
