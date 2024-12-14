@@ -51,6 +51,7 @@ public class Flash : MonoBehaviour
             Debug.Log("別のオタクです");
             shutter.conbo = 0;
             Destroy(gameObject);
+            shutter.Miss();
         }
         else if(otaku.gameObject.tag.Equals("Flash")){
             Debug.Log("フラッシュです");

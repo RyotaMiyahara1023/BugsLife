@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour
     public bool clear;
     public bool gameover;
     public int score;
-    [SerializeField] AudioSource audiosource_SE;
+    public AudioSource audiosource_SE;
+    [SerializeField] AudioSource audiosource_ResultBGM;
     SoundManager soundmanager;
     [SerializeField] AudioClip PauseSE;
     [SerializeField] AudioClip CancelSE;
@@ -71,6 +72,9 @@ public class GameManager : MonoBehaviour
             SE.value = soundmanager.se;
             BGM.value = soundmanager.bgm;
         }
+
+        audiosource_SE.volume = SE.value * Master.value;
+        audiosource_ResultBGM.volume = BGM.value * Master.value;
     }
 
     void Otaku_Generate()
@@ -153,6 +157,7 @@ public class GameManager : MonoBehaviour
             StreetNameImage.GetComponent<Image>().sprite = ResultScore[0];
             StreetNameImage.SetActive(true);
         }
+        audiosource_ResultBGM.Play();
         ScorePanel.SetActive(true);
         GameObject.Find("Manager").GetComponent<Ranking>().SetRank(score);
         yield return null;
@@ -196,6 +201,7 @@ public class GameManager : MonoBehaviour
             StreetNameImage.GetComponent<Image>().sprite = ResultScore[0];
             StreetNameImage.SetActive(true);
         }
+        audiosource_ResultBGM.Play();
         ScorePanel.SetActive(true);
         yield return null;
     }

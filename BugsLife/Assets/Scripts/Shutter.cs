@@ -23,6 +23,7 @@ public class Shutter : MonoBehaviour
     [SerializeField] Light FlashLight;
     [SerializeField] AudioClip SkillSE;
     [SerializeField] AudioClip FinalFlasSE;
+    [SerializeField] AudioClip MissSE;
     [SerializeField] AudioSource audioSource;
 
     void Start()
@@ -58,6 +59,8 @@ public class Shutter : MonoBehaviour
         }
 
         ScoreCharge.value = (int)(conbo%10);
+
+        audioSource.volume = gamemanager.audiosource_SE.volume;
     }
 
     public void Shutter_Moment(GameObject Flash_Color)
@@ -94,5 +97,10 @@ public class Shutter : MonoBehaviour
         rb.velocity = transform.forward * Speed;
         yield return new WaitForSeconds(3f);
         Destroy(f);
+    }
+
+    public void Miss()
+    {
+        audioSource.PlayOneShot(MissSE);
     }
 }
