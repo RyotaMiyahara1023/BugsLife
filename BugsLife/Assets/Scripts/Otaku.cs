@@ -9,6 +9,7 @@ public class Otaku : MonoBehaviour
     Shutter shutter;
     Material _material;
     Color32 mycolor;
+    [SerializeField] GameObject Effect;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +26,11 @@ public class Otaku : MonoBehaviour
 
         if(shutter.flash || shutter.flashattack) _material.color = mycolor;
         else _material.color = new Color32 (0, 0, 0, 0);
+    }
+
+    public void Death()
+    {
+        GameObject e = Instantiate(Effect, this.transform.position, Quaternion.identity);
+        Destroy(e, 2f);
     }
 }

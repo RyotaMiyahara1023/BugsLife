@@ -24,6 +24,7 @@ public class FinalFlash : MonoBehaviour
     void OnTriggerEnter(Collider otaku)
     {
         if(otaku.gameObject.name.Contains("Otaku")){
+            otaku.gameObject.GetComponent<Otaku>().Death();
             Destroy(otaku.gameObject);
             Debug.Log("オタクです");
             shutter.conbo++;

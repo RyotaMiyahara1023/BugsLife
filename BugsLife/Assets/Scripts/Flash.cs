@@ -34,6 +34,7 @@ public class Flash : MonoBehaviour
     void OnCollisionEnter(Collision otaku)
     {
         if(this.gameObject.name.Contains(otaku.gameObject.tag)){
+            otaku.gameObject.GetComponent<Otaku>().Death();
             Destroy(otaku.gameObject);
             Destroy(gameObject);
             Debug.Log("倒せた");

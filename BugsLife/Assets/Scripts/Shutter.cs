@@ -30,8 +30,8 @@ public class Shutter : MonoBehaviour
     void Update()
     {
         if(conbo != 0){
-            Conbo_Back.GetComponent<RectTransform>().anchoredPosition = new Vector2(-360 + (((int)Mathf.Log10(conbo))*50), 0f);
-            Conbo.text = "<size=80>" + conbo + "</size><size=50>Combo</size>";
+            Conbo_Back.GetComponent<RectTransform>().anchoredPosition = new Vector2(-290 + (((int)Mathf.Log10(conbo))*70), 0f);
+            Conbo.text = "<size=120>" + conbo + "</size><size=80>COMBO</size>";
         }
         else Conbo.text = null;
 

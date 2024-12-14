@@ -25,13 +25,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject StreetNameImage;
     public GameObject OtakuGenerater;
     float time = 0f;
-    float timer = 1f;
+    float timer = 100f;
     public bool pause;
     public bool clear;
     public bool gameover;
     public int score;
-    AudioSource audiosource_BGM;
-    AudioSource audiosource_SE;
+    [SerializeField] AudioSource audiosource_BGM;
+    [SerializeField] AudioSource audiosource_SE;
     SoundManager soundmanager;
     [SerializeField] AudioClip PauseSE;
     [SerializeField] AudioClip CancelSE;
@@ -63,14 +63,17 @@ public class GameManager : MonoBehaviour
         }
 
         /*if(pause){
-            Master.value = soundmanager.master;
-            SE.value = soundmanager.se;
-            BGM.value = soundmanager.bgm;
+            soundmanager.master = Master.value;
+            soundmanager.se = SE.value;
+            soundmanager.bgm = BGM.value;
         }
         else {
-            audiosource_BGM.volume = soundmanager.master * soundmanager.bgm;
-            audiosource_SE.volume = soundmanager.master * soundmanager.se;
+            audiosource_SE = Master.value * SE.value;
+            audiosource_BGM = Master.value * BGM.value;
         }*/
+
+        audiosource_SE.volume = Master.value * SE.value;
+        audiosource_BGM.volume = Master.value * BGM.value;
 
         if((Input.GetMouseButtonDown(0) && ScoreScreen[0].activeSelf) && (clear || gameover)){
             ScoreScreen[0].SetActive(false);
