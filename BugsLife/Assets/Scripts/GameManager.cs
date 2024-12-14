@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject StreetNameImage;
     public GameObject OtakuGenerater;
     float time = 0f;
-    float timer = 20f;
+    float timer = 78f;
     public bool pause;
     public bool clear;
     public bool gameover;
@@ -81,7 +81,8 @@ public class GameManager : MonoBehaviour
 
     void Otaku_Generate()
     {
-        int otaku_kazu = Random.Range(1, 4);
+        int otaku_kazu = 3 - (int)(timer/26);
+        Debug.Log(otaku_kazu);
 
         List<int> num = new List<int>();
         for (int i = 0; i <= 10; i++) {

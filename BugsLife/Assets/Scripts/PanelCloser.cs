@@ -4,7 +4,10 @@ using UnityEngine.UI;
 public class PanelCloser : MonoBehaviour
 {
     public Button closeButton; // ����{�^�����A�^�b�`
-    [SerializeField] ActivateParentAndDeactivateText AD;
+    [SerializeField] PanelManager panel;
+    [SerializeField] AudioClip se;
+    [SerializeField] AudioSource AS;
+    [SerializeField] SoundManager soundmanager;
 
     void Start()
     {
@@ -23,8 +26,11 @@ public class PanelCloser : MonoBehaviour
     void ClosePanel()
     {
         gameObject.SetActive(false); // ���g��GameObject���\���ɂ���
-        if(gameObject.name.Equals("SoundPanel")) AD.sound = false;
-        if(gameObject.name.Equals("ScorePanel")) AD.score = false;
+        panel.score = false;
+        panel.sound = false;
+        soundmanager = GameObject.Find("Manager").GetComponent<SoundManager>();
+        AS.volume = soundmanager.master * soundmanager.se;
+        AS.PlayOneShot(se);
         Debug.Log($"{gameObject.name} is now closed.");
     }
 }
