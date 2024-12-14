@@ -21,6 +21,9 @@ public class Shutter : MonoBehaviour
     public bool flashattack = false;
     bool reload = false;
     [SerializeField] Light FlashLight;
+    [SerializeField] AudioClip SkillSE;
+    [SerializeField] AudioClip FinalFlasSE;
+    [SerializeField] AudioSource audioSource;
 
     void Start()
     {
@@ -64,6 +67,7 @@ public class Shutter : MonoBehaviour
         rb.AddForce(this.transform.forward * Speed, ForceMode.Impulse); 
         flashattack = true;
         FlashLight.intensity = 40;
+        audioSource.PlayOneShot(SkillSE);
     }
 
     public void FinalFlash_Button(GameObject finalflash)
@@ -75,6 +79,7 @@ public class Shutter : MonoBehaviour
 
             if(charge.FinalFlashGage.fillAmount == 1) {
                 StartCoroutine( FinalFlash(finalflash));
+                audioSource.PlayOneShot(FinalFlasSE);
                 charge.power = 0;
             }
 

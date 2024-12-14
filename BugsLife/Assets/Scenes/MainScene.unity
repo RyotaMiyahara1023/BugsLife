@@ -4825,6 +4825,9 @@ MonoBehaviour:
   flash: 0
   flashattack: 0
   FlashLight: {fileID: 2085239947}
+  SkillSE: {fileID: 8300000, guid: 5c981205a06491945afba04801fd2cae, type: 3}
+  FinalFlasSE: {fileID: 8300000, guid: 8db9972ac1314fa4899e7d034aa02830, type: 3}
+  audioSource: {fileID: 963194232}
 --- !u!114 &963194231
 MonoBehaviour:
   m_ObjectHideFlags: 0

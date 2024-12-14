@@ -17,7 +17,7 @@ public class Gyro : MonoBehaviour
 
     void Update()
     {
-        if(!gamemanager.pause && !gamemanager.clear && !gamemanager.gameover && Input.gyro.enabled) StartCoroutine("GyroCamera");
+        //if(!gamemanager.pause && !gamemanager.clear && !gamemanager.gameover && Input.gyro.enabled) StartCoroutine("GyroCamera");
     }
 
     IEnumerator GyroCamera()
