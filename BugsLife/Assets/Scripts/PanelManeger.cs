@@ -19,8 +19,8 @@ public class PanelManager : MonoBehaviour
             panels[panelIndex].SetActive(true);
             if(panelIndex == 0) AD.sound = true;
             if(panelIndex == 1) {
-                GameObject.Find("Manager").GetComponent<Ranking>().DispRank();
                 AD.score = true;
+                GameObject.Find("Manager").GetComponent<Ranking>().DispRank();
             }
             Debug.Log($"Panel {panelIndex} activated");
         }

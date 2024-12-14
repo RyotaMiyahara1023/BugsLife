@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
 
     void Otaku_Generate()
     {
-        /*int otaku_kazu = Random.Range(1, 4);
+        int otaku_kazu = Random.Range(1, 4);
 
         List<int> num = new List<int>();
         for (int i = 0; i <= 10; i++) {
@@ -101,12 +101,12 @@ public class GameManager : MonoBehaviour
 
         num.Clear();
 
-        time = 0f;*/
+        time = 0f;
 
-        int otaku_color = Random.Range(0, 3);
+        /*int otaku_color = Random.Range(0, 3);
         Instantiate(Otaku[otaku_color], OtakuGenerater.transform.GetChild(6).transform.position, Quaternion.identity);
 
-        time = 0f;
+        time = 0f;*/
     }
 
     public void Pause()
