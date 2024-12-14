@@ -2413,6 +2413,8 @@ MonoBehaviour:
   audiosource_SE: {fileID: 431828980}
   PauseSE: {fileID: 8300000, guid: d127416d3f508114d8b3fb68be4d24ff, type: 3}
   CancelSE: {fileID: 8300000, guid: 670a592b820111e4fb7f5ebceb80dec6, type: 3}
+  SuccessSE: {fileID: 8300000, guid: 70aaab8fc2a9ec54cb8e3a7f07fdec49, type: 3}
+  FailedSE: {fileID: 8300000, guid: 21a3a2b15294bbb41ab691113589b954, type: 3}
   Master: {fileID: 1969341747}
   SE: {fileID: 1785943149}
   BGM: {fileID: 235789201}
@@ -4877,8 +4879,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cbed2a6716ebae94383266d04c2d1a7f, type: 3}
-  m_Resource: {fileID: 8300000, guid: cbed2a6716ebae94383266d04c2d1a7f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 060aa707d2628684e8b34fcae51839ae, type: 3}
+  m_Resource: {fileID: 8300000, guid: 060aa707d2628684e8b34fcae51839ae, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

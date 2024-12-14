@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     SoundManager soundmanager;
     [SerializeField] AudioClip PauseSE;
     [SerializeField] AudioClip CancelSE;
+    [SerializeField] AudioClip SuccessSE;
+    [SerializeField] AudioClip FailedSE;
     [SerializeField] Slider Master;
     [SerializeField] Slider SE;
     [SerializeField] Slider BGM;
@@ -118,7 +120,8 @@ public class GameManager : MonoBehaviour
         clear = true;
         FinishText.text = "LIVE SUCCESS";
         Finish.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        audiosource_SE.PlayOneShot(SuccessSE);
+        yield return new WaitForSeconds(4f);
         ResultScoreText.text = "Score " + score.ToString("D8");
         if(score >= 0 && score <= 100000){
             StreetNameText.text = "かけだしアイドル";
@@ -159,7 +162,8 @@ public class GameManager : MonoBehaviour
         gameover = true;
         FinishText.text = "LIVE FAILED";
         Finish.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        audiosource_SE.PlayOneShot(FailedSE);
+        yield return new WaitForSeconds(4f);
         GameOverText.text = "Failed…";
         ResultScoreText.text = "Score " + score.ToString("D8");
         if(score >= 0 && score <= 100000){
