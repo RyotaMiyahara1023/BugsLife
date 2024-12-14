@@ -5,28 +5,18 @@ using TMPro;
 
 public class Ranking : MonoBehaviour
 {
-    /* 値 */
-    const int   rankCnt = SaveData.rankCnt;                 // ランキング数
+    const int   rankCnt = SaveData.rankCnt;
 
-    /* コンポーネント取得用 */
-    public TextMeshProUGUI[] rankTexts = new TextMeshProUGUI[rankCnt];              // ランキングのテキスト
-    SaveData    data;                                       // 参照するセーブデータ
+    public TextMeshProUGUI[] rankTexts = new TextMeshProUGUI[rankCnt];
+    SaveData    data;
 
     //-------------------------------------------------------------------
     public void DataLoad()
     {
         SceneManager.LoadScene("TitleScene");
-        data = GetComponent<DataManager>().data;            // セーブデータをDataManagerから参照
-
-        /*for (int i = 0; i < rankCnt; i++) {
-            Transform rankChilds = GameObject.Find("RankTexts").transform.GetChild(i);      // 子オブジェクト取得
-            rankTexts[i] = rankChilds.GetComponent<Text>();                                 // 子オブジェクトのコンポーネント取得
-        }*/
+        data = GetComponent<DataManager>().data;
     }
 
-    //-------------------------------------------------------------------
-
-    // ランキング表示
     public void DispRank()
     {
         for (int i = 0; i < rankCnt; i++) {
@@ -36,10 +26,8 @@ public class Ranking : MonoBehaviour
         }
     }
 
-    // ランキング保存
     public void SetRank(int score)
     {
-        // スコアがランキング内の値よりも大きいときは入れ替え
         for (int i = 0; i < rankCnt; i++) {
             if (score > data.rank[i]) {
                 var rep = data.rank[i];
