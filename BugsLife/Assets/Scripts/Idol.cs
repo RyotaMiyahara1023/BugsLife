@@ -19,7 +19,10 @@ public class Idol : MonoBehaviour
 
     void OnTriggerEnter(Collider otaku)
     {
-        if(otaku.gameObject.name.Contains("Otaku") && !gamemanager.clear) gamemanager.GameOver();
+        if(otaku.gameObject.name.Contains("Otaku") && !gamemanager.clear) {
+            //gamemanager.GameOver();
+            gamemanager.StartCoroutine("GameOver");
+        }
         else Debug.Log("Otakuは文章の中に含まれていません。");
     }
 }

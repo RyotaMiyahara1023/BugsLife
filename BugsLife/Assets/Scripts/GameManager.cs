@@ -12,18 +12,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI ScoreText;
     [SerializeField] TextMeshProUGUI ScoreAddText;
     [SerializeField] TextMeshProUGUI TimerText;
+    [SerializeField] TextMeshProUGUI FinishText;
     [SerializeField] TextMeshProUGUI GameOverText;
     [SerializeField] TextMeshProUGUI ResultScoreText;
     [SerializeField] GameObject[] Otaku = new GameObject[3];
     [SerializeField] GameObject[] ScoreScreen = new GameObject[2];
     [SerializeField] Sprite[] Back = new Sprite[2];
     [SerializeField] Image BackImage;
+    [SerializeField] GameObject Finish;
     [SerializeField] Sprite[] ResultScore = new Sprite[3];
     [SerializeField] GameObject ResultScoreImage;
     [SerializeField] GameObject StreetNameImage;
     public GameObject OtakuGenerater;
     float time = 0f;
-    float timer = 10f;
+    float timer = 1f;
     public bool pause;
     public bool clear;
     public bool gameover;
@@ -56,10 +58,11 @@ public class GameManager : MonoBehaviour
 
         if(timer < 0f && !clear) {
             TimerText.text = "0:00";
-            GameClear();
+            StartCoroutine("GameClear");
+            //GameClear();
         }
 
-        if(pause){
+        /*if(pause){
             Master.value = soundmanager.master;
             SE.value = soundmanager.se;
             BGM.value = soundmanager.bgm;
@@ -67,7 +70,7 @@ public class GameManager : MonoBehaviour
         else {
             audiosource_BGM.volume = soundmanager.master * soundmanager.bgm;
             audiosource_SE.volume = soundmanager.master * soundmanager.se;
-        }
+        }*/
 
         if((Input.GetMouseButtonDown(0) && ScoreScreen[0].activeSelf) && (clear || gameover)){
             ScoreScreen[0].SetActive(false);
@@ -121,7 +124,7 @@ public class GameManager : MonoBehaviour
         audiosource_SE.PlayOneShot(CancelSE);
     }
 
-    public void GameClear()
+    /*public void GameClear()
     {
         Time.timeScale = 0;
         clear = true;
@@ -144,6 +147,35 @@ public class GameManager : MonoBehaviour
         ResultScoreImage.SetActive(false);
         StreetNameImage.SetActive(false);
         ScorePanel.SetActive(true);
+    }*/
+
+    IEnumerator GameClear()
+    {
+        clear = true;
+        FinishText.text = "LIVE SUCCESS";
+        Finish.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        ResultScoreText.text = "Score " + score.ToString("D8");
+        BackImage.sprite = Back[0];
+        ResultScoreImage.SetActive(true);
+        StreetNameImage.SetActive(true);
+        ScorePanel.SetActive(true);
+        GameObject.Find("Manager").GetComponent<Ranking>().SetRank(score);
+        yield return null;
+    }
+    public IEnumerator GameOver()
+    {
+        gameover = true;
+        FinishText.text = "LIVE FAILED";
+        Finish.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        GameOverText.text = "Failed…";
+        ResultScoreText.text = "Score " + score.ToString("D8");
+        BackImage.sprite = Back[1];
+        ResultScoreImage.SetActive(false);
+        StreetNameImage.SetActive(false);
+        ScorePanel.SetActive(true);
+        yield return null;
     }
 
     public IEnumerator ScorePlus(int scoreAdd)
