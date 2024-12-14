@@ -3,38 +3,55 @@ using UnityEngine.UI;
 
 public class VolumeSlider : MonoBehaviour
 {
-    [SerializeField] private Slider bgmSlider; // BGMƒXƒ‰ƒCƒ_[
-    [SerializeField] private Slider mainSlider; // MainƒXƒ‰ƒCƒ_[
-    [SerializeField] private Slider seSlider; // SEƒXƒ‰ƒCƒ_[
-    [SerializeField] private Image bgmSoundIcon; // BGMƒTƒEƒ“ƒhƒAƒCƒRƒ“
-    [SerializeField] private Image mainSoundIcon; // MainƒTƒEƒ“ƒhƒAƒCƒRƒ“
-    [SerializeField] private Image seSoundIcon; // SEƒTƒEƒ“ƒhƒAƒCƒRƒ“
-    [SerializeField] private Sprite muteIcon; // ƒ~ƒ…[ƒgƒAƒCƒRƒ“
-    [SerializeField] private Sprite undoIcon; // ƒ~ƒ…[ƒg‰ğœƒAƒCƒRƒ“
+    [SerializeField] private Slider bgmSlider; // BGMï¿½Xï¿½ï¿½ï¿½Cï¿½_ï¿½[
+    [SerializeField] private Slider mainSlider; // Mainï¿½Xï¿½ï¿½ï¿½Cï¿½_ï¿½[
+    [SerializeField] private Slider seSlider; // SEï¿½Xï¿½ï¿½ï¿½Cï¿½_ï¿½[
+    [SerializeField] private Image bgmSoundIcon; // BGMï¿½Tï¿½Eï¿½ï¿½ï¿½hï¿½Aï¿½Cï¿½Rï¿½ï¿½
+    [SerializeField] private Image mainSoundIcon; // Mainï¿½Tï¿½Eï¿½ï¿½ï¿½hï¿½Aï¿½Cï¿½Rï¿½ï¿½
+    [SerializeField] private Image seSoundIcon; // SEï¿½Tï¿½Eï¿½ï¿½ï¿½hï¿½Aï¿½Cï¿½Rï¿½ï¿½
+    [SerializeField] private Sprite muteIcon; // ï¿½~ï¿½ï¿½ï¿½[ï¿½gï¿½Aï¿½Cï¿½Rï¿½ï¿½
+    [SerializeField] private Sprite undoIcon; // ï¿½~ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Cï¿½Rï¿½ï¿½
+    SoundManager soundManager;
+    [SerializeField] AudioSource AS_BGM;
 
     void Start()
     {
-        // ƒXƒ‰ƒCƒ_[‚Ì‰Šú’lİ’è‚ÆƒŠƒXƒi[“o˜^
+        // ï¿½Xï¿½ï¿½ï¿½Cï¿½_ï¿½[ï¿½Ìï¿½ï¿½ï¿½ï¿½lï¿½İ’ï¿½Æƒï¿½ï¿½Xï¿½iï¿½[ï¿½oï¿½^
         bgmSlider.onValueChanged.AddListener(value => OnVolumeChanged(value, bgmSoundIcon));
         mainSlider.onValueChanged.AddListener(value => OnVolumeChanged(value, mainSoundIcon));
         seSlider.onValueChanged.AddListener(value => OnVolumeChanged(value, seSoundIcon));
 
-        // ‰ŠúƒAƒCƒRƒ“‚ÌXV
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Cï¿½Rï¿½ï¿½ï¿½ÌXï¿½V
         OnVolumeChanged(bgmSlider.value, bgmSoundIcon);
         OnVolumeChanged(mainSlider.value, mainSoundIcon);
         OnVolumeChanged(seSlider.value, seSoundIcon);
+
+        soundManager = GameObject.Find("Manager").GetComponent<SoundManager>();
+
+        mainSlider.value = soundManager.master;
+        seSlider.value = soundManager.se;
+        bgmSlider.value = soundManager.bgm;
+    }
+
+    void Update()
+    {
+        soundManager.master = mainSlider.value;
+        soundManager.se = seSlider.value;
+        soundManager.bgm = bgmSlider.value;
+
+        AS_BGM.volume = mainSlider.value * bgmSlider.value;
     }
 
     private void OnVolumeChanged(float value, Image soundIcon)
     {
         if (value == 0)
         {
-            // ƒ~ƒ…[ƒgó‘Ô‚É‚·‚é
+            // ï¿½~ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½Ô‚É‚ï¿½ï¿½ï¿½
             soundIcon.sprite = muteIcon;
         }
         else
         {
-            // ƒ~ƒ…[ƒg‰ğœó‘Ô‚É‚·‚é
+            // ï¿½~ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚É‚ï¿½ï¿½ï¿½
             soundIcon.sprite = undoIcon;
         }
     }

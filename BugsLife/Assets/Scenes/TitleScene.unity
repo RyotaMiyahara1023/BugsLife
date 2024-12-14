@@ -7514,6 +7514,7 @@ MonoBehaviour:
   seSoundIcon: {fileID: 1067402922}
   muteIcon: {fileID: 21300000, guid: 235c0fe204da5a74fbd3301cd4e4c923, type: 3}
   undoIcon: {fileID: 21300000, guid: ec22e37ff5a2d8b4186c7e8ea0fcf133, type: 3}
+  AS_BGM: {fileID: 374322475}
 --- !u!4 &1261288176
 Transform:
   m_ObjectHideFlags: 0
