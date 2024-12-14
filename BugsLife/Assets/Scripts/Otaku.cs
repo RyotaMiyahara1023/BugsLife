@@ -29,7 +29,7 @@ public class Otaku : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!gamemanager.pause && !gamemanager.clear && !gamemanager.gameover) transform.position = Vector3.MoveTowards(transform.position, new Vector3(-0.5f, 0f, 2.5f), speed * Time.deltaTime);
+        if(!gamemanager.pause && !gamemanager.clear && !gamemanager.gameover) transform.position = Vector3.MoveTowards(transform.position, new Vector3(-0.5f, 0f, 0f), speed * Time.deltaTime);
 
         if(shutter.flash || shutter.flashattack) {
             //_material.color = mycolor;

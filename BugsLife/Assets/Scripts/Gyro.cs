@@ -45,6 +45,7 @@ public class Gyro : MonoBehaviour
         if(!rot_set){
             rot_set = true;
             gamemanager.OtakuGenerater.transform.eulerAngles = new Vector3(0f, transform.localEulerAngles.y, 0f);
+            //gamemanager.OtakuGenerater.transform.position = new Vector3(-2.5f*Mathf.Sin(transform.localEulerAngles.y * Mathf.Deg2Rad), 1f, -2.5f*Mathf.Cos(transform.localEulerAngles.y * Mathf.Deg2Rad));
         }
     }
 
