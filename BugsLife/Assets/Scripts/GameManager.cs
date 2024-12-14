@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Sprite[] ResultScore = new Sprite[3];
     [SerializeField] GameObject ResultScoreImage;
     [SerializeField] GameObject StreetNameImage;
+    [SerializeField] GameObject MenuButton;
     public GameObject OtakuGenerater;
     float time = 0f;
     float timer = 78f;
@@ -73,10 +74,10 @@ public class GameManager : MonoBehaviour
             audiosource_SE.volume = Master.value * SE.value;
         }*/
 
-        if((Input.GetMouseButtonDown(0) && ScoreScreen[0].activeSelf) && (clear || gameover)){
+        /*if((Input.GetMouseButtonDown(0) && ScoreScreen[0].activeSelf) && (clear || gameover)){
             ScoreScreen[0].SetActive(false);
             ScoreScreen[1].SetActive(true);
-        }
+        }*/
     }
 
     void Otaku_Generate()
@@ -126,31 +127,6 @@ public class GameManager : MonoBehaviour
         audiosource_SE.PlayOneShot(CancelSE);
     }
 
-    /*public void GameClear()
-    {
-        Time.timeScale = 0;
-        clear = true;
-        GameOverText.text = "Success!!";
-        ResultScoreText.text = "Score " + score.ToString("D8");
-        BackImage.sprite = Back[0];
-        ResultScoreImage.SetActive(true);
-        StreetNameImage.SetActive(true);
-        ScorePanel.SetActive(true);
-        GameObject.Find("Manager").GetComponent<Ranking>().SetRank(score);
-    }
-
-    public void GameOver()
-    {
-        Time.timeScale = 0;
-        gameover = true;
-        GameOverText.text = "Failed…";
-        ResultScoreText.text = "Score " + score.ToString("D8");
-        BackImage.sprite = Back[1];
-        ResultScoreImage.SetActive(false);
-        StreetNameImage.SetActive(false);
-        ScorePanel.SetActive(true);
-    }*/
-
     IEnumerator GameClear()
     {
         clear = true;
@@ -186,6 +162,13 @@ public class GameManager : MonoBehaviour
         ScoreAddText.text = "+" + scoreAdd.ToString();
         yield return new WaitForSeconds(0.1f);
         if(scorecheck == score)ScoreAddText.text = null;
+    }
+
+    public void Menu()
+    {
+        ScoreScreen[0].SetActive(false);
+        ScoreScreen[1].SetActive(true);
+        MenuButton.SetActive(false);
     }
 
     public void Retry()
