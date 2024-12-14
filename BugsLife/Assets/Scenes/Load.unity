@@ -404,6 +404,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6208c4bfe585e384aab771b3ecbb8bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rankTexts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &2058303798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,7 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    rank: 000000000000000000000000
+    rank: 0000000000000000000000000000000000000000
   ranking: {fileID: 2058303797}
 --- !u!4 &2058303799
 Transform:

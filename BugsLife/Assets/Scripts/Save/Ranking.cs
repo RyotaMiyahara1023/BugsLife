@@ -9,7 +9,7 @@ public class Ranking : MonoBehaviour
     const int   rankCnt = SaveData.rankCnt;                 // ランキング数
 
     /* コンポーネント取得用 */
-    TextMeshProUGUI[] rankTexts = new TextMeshProUGUI[rankCnt];              // ランキングのテキスト
+    public TextMeshProUGUI[] rankTexts = new TextMeshProUGUI[rankCnt];              // ランキングのテキスト
     SaveData    data;                                       // 参照するセーブデータ
 
     //-------------------------------------------------------------------
@@ -30,7 +30,7 @@ public class Ranking : MonoBehaviour
     public void DispRank()
     {
         for (int i = 0; i < rankCnt; i++) {
-            Transform rankChilds = GameObject.Find("RankTexts").transform.GetChild(i);
+            Transform rankChilds = GameObject.Find("Ranking_text").transform.GetChild(i);
             rankTexts[i] = rankChilds.GetComponent<TextMeshProUGUI>();   
             rankTexts[i].text = data.rank[i].ToString("D8");
         }
