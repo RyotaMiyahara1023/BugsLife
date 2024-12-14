@@ -10,10 +10,12 @@ public class Charge : MonoBehaviour
     public int power = 0;
     AudioSource audiosource;
     [SerializeField] AudioClip[] ChargeSE = new AudioClip[9];
+    SoundManager soundmanager;
     // Start is called before the first frame update
     void Start()
     {
         audiosource = GetComponent<AudioSource>();
+        soundmanager = GameObject.Find("Manager").GetComponent<SoundManager>();
     }
 
     // Update is called once per frame
@@ -22,6 +24,7 @@ public class Charge : MonoBehaviour
         FinalFlashGage.fillAmount = (float)(power) / 8;
         if(FinalFlashGage.fillAmount < 1) this.gameObject.GetComponent<Image>().sprite = Button_Image[0];
         else this.gameObject.GetComponent<Image>().sprite = Button_Image[1];
+        audiosource.volume = soundmanager.master * soundmanager.se * 0.5f;
     }
 
     public void SE(){

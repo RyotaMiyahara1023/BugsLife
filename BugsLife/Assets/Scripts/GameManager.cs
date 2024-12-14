@@ -64,14 +64,14 @@ public class GameManager : MonoBehaviour
             //GameClear();
         }
 
-        if(pause){
+        if(!pause){
             Master.value = soundmanager.master;
             SE.value = soundmanager.se;
             BGM.value = soundmanager.bgm;
         }
-        else {
+        /*else {
             audiosource_SE.volume = Master.value * SE.value;
-        }
+        }*/
 
         if((Input.GetMouseButtonDown(0) && ScoreScreen[0].activeSelf) && (clear || gameover)){
             ScoreScreen[0].SetActive(false);
