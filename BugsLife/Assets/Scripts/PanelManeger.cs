@@ -2,20 +2,21 @@ using UnityEngine;
 
 public class PanelManager : MonoBehaviour
 {
-    public GameObject[] panels; // •¡”‚Ìƒpƒlƒ‹‚ðŠÇ—
+    public GameObject[] panels; // ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒpï¿½lï¿½ï¿½ï¿½ï¿½ï¿½Ç—ï¿½
 
     public void ShowPanel(int panelIndex)
     {
-        // ‘S‚Ä‚Ìƒpƒlƒ‹‚ð”ñ•\Ž¦‚É‚·‚é
+        // ï¿½Sï¿½Ä‚Ìƒpï¿½lï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½
         foreach (GameObject panel in panels)
         {
             panel.SetActive(false);
         }
 
-        // Žw’è‚³‚ê‚½ƒpƒlƒ‹‚ð•\Ž¦
+        // ï¿½wï¿½è‚³ï¿½ê‚½ï¿½pï¿½lï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½
         if (panelIndex >= 0 && panelIndex < panels.Length)
         {
             panels[panelIndex].SetActive(true);
+            if(panelIndex == 1) GameObject.Find("Manager").GetComponent<Ranking>().DispRank();
             Debug.Log($"Panel {panelIndex} activated");
         }
     }

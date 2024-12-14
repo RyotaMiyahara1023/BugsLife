@@ -19,8 +19,6 @@ public class SmoothTextBlink : MonoBehaviour
 
         // テキストの元の色を保持（RGBを維持してアルファを変える）
         originalColor = targetText.color;
-
-        GameObject.Find("Manager").GetComponent<Ranking>().DispRank();
     }
 
     void Update()
