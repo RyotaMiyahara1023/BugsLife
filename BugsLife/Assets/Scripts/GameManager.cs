@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject MenuButton;
     public GameObject OtakuGenerater;
     float time = 0f;
-    float timer = 1f;
+    float timer = 78f;
     public bool pause;
     public bool clear;
     public bool gameover;
