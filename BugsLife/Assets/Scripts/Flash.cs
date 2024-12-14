@@ -10,7 +10,7 @@ public class Flash : MonoBehaviour
     GameManager gamemanager;
     float time = 0f;
     public int scoreAdd;
-    // Start is called before the first frame update
+
     void Start()
     {
         shutter = GameObject.Find("Main Camera").GetComponent<Shutter>();
@@ -19,7 +19,6 @@ public class Flash : MonoBehaviour
         GetComponent<Renderer>().sortingOrder = 1;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(!gamemanager.pause && !gamemanager.clear && !gamemanager.gameover){

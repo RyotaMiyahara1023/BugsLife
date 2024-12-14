@@ -21,13 +21,12 @@ public class Shutter : MonoBehaviour
     public bool flashattack = false;
     bool reload = false;
     [SerializeField] Light FlashLight;
-    // Start is called before the first frame update
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(conbo != 0){
@@ -38,18 +37,12 @@ public class Shutter : MonoBehaviour
 
         if(!gamemanager.pause){
             if(flash){
-                /*Filter.color += new Color32 (0, 0, 0, 2);
-                if(Filter.color == new Color32 (0, 0, 0, 240)) flash = false;*/
-                //RenderSettings.fogDensity += 0.5f*Time.deltaTime;
                 FlashLight.intensity -= 40*Time.deltaTime;;
-                //if(RenderSettings.fogDensity >= 0.25f) flash = false;
                 if(FlashLight.intensity == 0f) flash = false;
             }
             else if(flashattack){
                 if(!flash){
-                    //RenderSettings.fogDensity += Time.deltaTime;
                     FlashLight.intensity -= 80*Time.deltaTime;;
-                    //if(RenderSettings.fogDensity >= 0.25f) flashattack = false;
                     if(FlashLight.intensity == 0f) flashattack = false;
                 }
             }
@@ -66,30 +59,18 @@ public class Shutter : MonoBehaviour
 
     public void Shutter_Moment(GameObject Flash_Color)
     {
-        //StartCoroutine( Flash(Flash_Color));
         GameObject f = Instantiate(Flash_Color, this.transform.position, this.transform.rotation);
         Rigidbody rb = f.GetComponent<Rigidbody>();
         rb.AddForce(this.transform.forward * Speed, ForceMode.Impulse); 
         flashattack = true;
-        //RenderSettings.fogDensity = 0f;
         FlashLight.intensity = 40;
     }
-
-    /*IEnumerator Flash(GameObject flash)
-    {
-        GameObject f = Instantiate(flash, this.transform.position, this.transform.rotation);
-        Rigidbody rb = f.GetComponent<Rigidbody>();
-        rb.AddForce(this.transform.forward * Speed, ForceMode.Impulse); 
-        //yield return new WaitForSeconds(3f);
-        //Destroy(f);
-    }*/
 
     public void FinalFlash_Button(GameObject finalflash)
     {
         if(reload){
             flash = true;
         
-            //RenderSettings.fogDensity = 0f;
             FlashLight.intensity = 40;
 
             if(charge.FinalFlashGage.fillAmount == 1) {
@@ -105,7 +86,6 @@ public class Shutter : MonoBehaviour
     {
         GameObject f = Instantiate(finalflash, this.transform.position, this.transform.rotation);
         Rigidbody rb = f.GetComponent<Rigidbody>();
-        //rb.AddForce(this.transform.forward * Speed, ForceMode.Impulse); 
         rb.velocity = transform.forward * Speed;
         yield return new WaitForSeconds(3f);
         Destroy(f);

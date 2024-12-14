@@ -8,14 +8,13 @@ public class FinalFlash : MonoBehaviour
     Shutter shutter;
     GameManager gamemanager;
     public int scoreAdd;
-    // Start is called before the first frame update
+
     void Start()
     {
         shutter = GameObject.Find("Main Camera").GetComponent<Shutter>();
         gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         transform.Rotate(0,0,3);

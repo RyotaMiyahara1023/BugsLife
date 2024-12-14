@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Slider Master;
     [SerializeField] Slider SE;
     [SerializeField] Slider BGM;
-    // Start is called before the first frame update
+
     void Start()
     {
         soundmanager = GameObject.Find("Manager").GetComponent<SoundManager>();
@@ -48,7 +48,6 @@ public class GameManager : MonoBehaviour
         BGM.value = soundmanager.bgm;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(!pause && !clear && !gameover){
@@ -63,7 +62,6 @@ public class GameManager : MonoBehaviour
         if(timer < 0f && !clear && !gameover) {
             TimerText.text = "0:00";
             StartCoroutine("GameClear");
-            //GameClear();
         }
 
         if(!pause){
@@ -71,14 +69,6 @@ public class GameManager : MonoBehaviour
             SE.value = soundmanager.se;
             BGM.value = soundmanager.bgm;
         }
-        /*else {
-            audiosource_SE.volume = Master.value * SE.value;
-        }*/
-
-        /*if((Input.GetMouseButtonDown(0) && ScoreScreen[0].activeSelf) && (clear || gameover)){
-            ScoreScreen[0].SetActive(false);
-            ScoreScreen[1].SetActive(true);
-        }*/
     }
 
     void Otaku_Generate()
@@ -105,11 +95,6 @@ public class GameManager : MonoBehaviour
         num.Clear();
 
         time = 0f;
-
-        /*int otaku_color = Random.Range(0, 3);
-        Instantiate(Otaku[otaku_color], OtakuGenerater.transform.GetChild(6).transform.position, Quaternion.identity);
-
-        time = 0f;*/
     }
 
     public void Pause()

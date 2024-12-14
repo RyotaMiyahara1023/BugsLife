@@ -5,13 +5,12 @@ using UnityEngine;
 public class Idol : MonoBehaviour
 {
     [SerializeField] GameManager gamemanager;
-    // Start is called before the first frame update
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -19,10 +18,7 @@ public class Idol : MonoBehaviour
 
     void OnTriggerEnter(Collider otaku)
     {
-        if(otaku.gameObject.name.Contains("Otaku") && !gamemanager.clear) {
-            //gamemanager.GameOver();
-            gamemanager.StartCoroutine("GameOver");
-        }
+        if(otaku.gameObject.name.Contains("Otaku") && !gamemanager.clear) gamemanager.StartCoroutine("GameOver");
         else Debug.Log("Otakuは文章の中に含まれていません。");
     }
 }
