@@ -28,13 +28,18 @@ public class GameManager : MonoBehaviour
     public bool clear;
     public bool gameover;
     public int score;
-    AudioSource audiosource;
+    AudioSource audiosource_BGM;
+    AudioSource audiosource_SE;
+    SoundManager soundmanager;
     [SerializeField] AudioClip PauseSE;
     [SerializeField] AudioClip CancelSE;
+    [SerializeField] Slider Master;
+    [SerializeField] Slider SE;
+    [SerializeField] Slider BGM;
     // Start is called before the first frame update
     void Start()
     {
-        audiosource = GetComponent<AudioSource>();
+        soundmanager = GameObject.Find("Manager").GetComponent<SoundManager>();
     }
 
     // Update is called once per frame
@@ -52,6 +57,16 @@ public class GameManager : MonoBehaviour
         if(timer < 0f && !clear) {
             TimerText.text = "0:00";
             GameClear();
+        }
+
+        if(pause){
+            Master.value = soundmanager.master;
+            SE.value = soundmanager.se;
+            BGM.value = soundmanager.bgm;
+        }
+        else {
+            audiosource_BGM.volume = soundmanager.master * soundmanager.bgm;
+            audiosource_SE.volume = soundmanager.master * soundmanager.se;
         }
 
         if((Input.GetMouseButtonDown(0) && ScoreScreen[0].activeSelf) && (clear || gameover)){
@@ -94,7 +109,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
         pause = true;
-        audiosource.PlayOneShot(PauseSE);
+        audiosource_SE.PlayOneShot(PauseSE);
         PausePanel.SetActive(true);
     }
 
@@ -103,7 +118,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         pause = false;
         PausePanel.SetActive(false);
-        audiosource.PlayOneShot(CancelSE);
+        audiosource_SE.PlayOneShot(CancelSE);
     }
 
     public void GameClear()

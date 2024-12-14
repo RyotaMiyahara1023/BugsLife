@@ -2570,6 +2570,9 @@ MonoBehaviour:
   score: 0
   PauseSE: {fileID: 8300000, guid: d127416d3f508114d8b3fb68be4d24ff, type: 3}
   CancelSE: {fileID: 8300000, guid: 670a592b820111e4fb7f5ebceb80dec6, type: 3}
+  Master: {fileID: 0}
+  SE: {fileID: 0}
+  BGM: {fileID: 0}
 --- !u!4 &431828979
 Transform:
   m_ObjectHideFlags: 0
