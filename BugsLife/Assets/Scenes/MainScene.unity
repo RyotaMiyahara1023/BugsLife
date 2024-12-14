@@ -2557,6 +2557,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 154777c97038502418f8454e2fc36f7a, type: 3}
   - {fileID: 21300000, guid: 59755c434a8b8b743ba3ccaf4c212f8b, type: 3}
   BackImage: {fileID: 831828767}
+  ResultScore:
+  - {fileID: 21300000, guid: 9e6f9b4a50ff33e4faa6484132770597, type: 3}
+  - {fileID: 21300000, guid: 2de5d8662736aa045ac18ff2a590bca3, type: 3}
+  - {fileID: 21300000, guid: cd5c0a9fc007d5644b460631af1d7f9e, type: 3}
   ResultScoreImage: {fileID: 1404458855}
   StreetNameImage: {fileID: 1433932344}
   OtakuGenerater: {fileID: 193013194}

@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] ScoreScreen = new GameObject[2];
     [SerializeField] Sprite[] Back = new Sprite[2];
     [SerializeField] Image BackImage;
+    [SerializeField] Sprite[] ResultScore = new Sprite[3];
     [SerializeField] GameObject ResultScoreImage;
     [SerializeField] GameObject StreetNameImage;
     public GameObject OtakuGenerater;
