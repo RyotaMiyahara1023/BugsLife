@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject MenuButton;
     public GameObject OtakuGenerater;
     float time = 0f;
-    float timer = 78f;
+    float timer = 1f;
     public bool pause;
     public bool clear;
     public bool gameover;
@@ -125,7 +125,9 @@ public class GameManager : MonoBehaviour
         FinishText.text = "LIVE SUCCESS";
         Finish.SetActive(true);
         audiosource_SE.PlayOneShot(SuccessSE);
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(1f);
+        audiosource_ResultBGM.Play();
+        yield return new WaitForSeconds(3f);
         ResultScoreText.text = "Score " + score.ToString("D8");
         if(score >= 0 && score <= 100000){
             StreetNameText.text = "かけだしアイドル";
@@ -157,7 +159,6 @@ public class GameManager : MonoBehaviour
             StreetNameImage.GetComponent<Image>().sprite = ResultScore[0];
             StreetNameImage.SetActive(true);
         }
-        audiosource_ResultBGM.Play();
         ScorePanel.SetActive(true);
         GameObject.Find("Manager").GetComponent<Ranking>().SetRank(score);
         yield return null;
@@ -168,7 +169,9 @@ public class GameManager : MonoBehaviour
         FinishText.text = "LIVE FAILED";
         Finish.SetActive(true);
         audiosource_SE.PlayOneShot(FailedSE);
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(1f);
+        audiosource_ResultBGM.Play();
+        yield return new WaitForSeconds(3f);
         GameOverText.text = "Failed…";
         ResultScoreText.text = "Score " + score.ToString("D8");
         if(score >= 0 && score <= 100000){
@@ -201,7 +204,6 @@ public class GameManager : MonoBehaviour
             StreetNameImage.GetComponent<Image>().sprite = ResultScore[0];
             StreetNameImage.SetActive(true);
         }
-        audiosource_ResultBGM.Play();
         ScorePanel.SetActive(true);
         yield return null;
     }
