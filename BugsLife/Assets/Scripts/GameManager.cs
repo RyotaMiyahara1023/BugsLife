@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI FinishText;
     [SerializeField] TextMeshProUGUI GameOverText;
     [SerializeField] TextMeshProUGUI ResultScoreText;
+    [SerializeField] TextMeshProUGUI StreetNameText;
     [SerializeField] GameObject[] Otaku = new GameObject[3];
     [SerializeField] GameObject[] ScoreScreen = new GameObject[2];
     [SerializeField] Sprite[] Back = new Sprite[2];
@@ -134,9 +135,36 @@ public class GameManager : MonoBehaviour
         Finish.SetActive(true);
         yield return new WaitForSeconds(2f);
         ResultScoreText.text = "Score " + score.ToString("D8");
-        BackImage.sprite = Back[0];
-        ResultScoreImage.SetActive(true);
-        StreetNameImage.SetActive(true);
+        if(score >= 0 && score <= 100000){
+            StreetNameText.text = "かけだしアイドル";
+            BackImage.sprite = Back[1];
+            ResultScoreImage.SetActive(false);
+            StreetNameImage.SetActive(false);
+        }
+        else if(score > 100000 && score <= 500000){
+            StreetNameText.text = "いちにんまえアイドル";
+            BackImage.sprite = Back[0];
+            ResultScoreImage.GetComponent<Image>().sprite = ResultScore[1];
+            ResultScoreImage.SetActive(true);
+            StreetNameImage.GetComponent<Image>().sprite = ResultScore[1];
+            StreetNameImage.SetActive(true);
+        }
+        else if(score > 500000 && score <= 1000000){
+            StreetNameText.text = "じゅくれんアイドル";
+            BackImage.sprite = Back[0];
+            ResultScoreImage.GetComponent<Image>().sprite = ResultScore[2];
+            ResultScoreImage.SetActive(true);
+            StreetNameImage.GetComponent<Image>().sprite = ResultScore[2];
+            StreetNameImage.SetActive(true);
+        }
+        else if (score > 1000000){
+            StreetNameText.text = "えいえんのアイドル";
+            BackImage.sprite = Back[0];
+            ResultScoreImage.GetComponent<Image>().sprite = ResultScore[0];
+            ResultScoreImage.SetActive(true);
+            StreetNameImage.GetComponent<Image>().sprite = ResultScore[0];
+            StreetNameImage.SetActive(true);
+        }
         ScorePanel.SetActive(true);
         GameObject.Find("Manager").GetComponent<Ranking>().SetRank(score);
         yield return null;
@@ -149,9 +177,36 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         GameOverText.text = "Failed…";
         ResultScoreText.text = "Score " + score.ToString("D8");
-        BackImage.sprite = Back[1];
-        ResultScoreImage.SetActive(false);
-        StreetNameImage.SetActive(false);
+        if(score >= 0 && score <= 100000){
+            StreetNameText.text = "かけだしアイドル";
+            BackImage.sprite = Back[1];
+            ResultScoreImage.SetActive(false);
+            StreetNameImage.SetActive(false);
+        }
+        else if(score > 100000 && score <= 500000){
+            StreetNameText.text = "いちにんまえアイドル";
+            BackImage.sprite = Back[0];
+            ResultScoreImage.GetComponent<Image>().sprite = ResultScore[1];
+            ResultScoreImage.SetActive(true);
+            StreetNameImage.GetComponent<Image>().sprite = ResultScore[1];
+            StreetNameImage.SetActive(true);
+        }
+        else if(score > 500000 && score <= 1000000){
+            StreetNameText.text = "じゅくれんアイドル";
+            BackImage.sprite = Back[0];
+            ResultScoreImage.GetComponent<Image>().sprite = ResultScore[2];
+            ResultScoreImage.SetActive(true);
+            StreetNameImage.GetComponent<Image>().sprite = ResultScore[2];
+            StreetNameImage.SetActive(true);
+        }
+        else if (score > 1000000){
+            StreetNameText.text = "えいえんのアイドル";
+            BackImage.sprite = Back[0];
+            ResultScoreImage.GetComponent<Image>().sprite = ResultScore[0];
+            ResultScoreImage.SetActive(true);
+            StreetNameImage.GetComponent<Image>().sprite = ResultScore[0];
+            StreetNameImage.SetActive(true);
+        }
         ScorePanel.SetActive(true);
         yield return null;
     }

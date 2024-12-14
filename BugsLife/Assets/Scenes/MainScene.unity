@@ -2550,6 +2550,7 @@ MonoBehaviour:
   FinishText: {fileID: 1300269328}
   GameOverText: {fileID: 2029930023}
   ResultScoreText: {fileID: 231325052}
+  StreetNameText: {fileID: 1539039356}
   Otaku:
   - {fileID: 3425284630730050290, guid: 3f1c6ad51f46a764c8da7539e48dff5d, type: 3}
   - {fileID: 7794324682441866742, guid: 88d07642ffdae9a4fbe0b3b028489d2d, type: 3}
