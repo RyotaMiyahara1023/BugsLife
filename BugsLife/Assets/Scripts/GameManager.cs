@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
     public bool clear;
     public bool gameover;
     public int score;
-    [SerializeField] AudioSource audiosource_BGM;
     [SerializeField] AudioSource audiosource_SE;
     SoundManager soundmanager;
     [SerializeField] AudioClip PauseSE;
@@ -42,12 +41,15 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         soundmanager = GameObject.Find("Manager").GetComponent<SoundManager>();
+        Master.value = soundmanager.master;
+        SE.value = soundmanager.se;
+        BGM.value = soundmanager.bgm;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!pause && !clear){
+        if(!pause && !clear && !gameover){
             time += Time.deltaTime;
             timer -= Time.deltaTime;
             if(time >= 1.5f) Otaku_Generate();
@@ -56,24 +58,20 @@ public class GameManager : MonoBehaviour
         ScoreText.text = score.ToString("D8");
         TimerText.text = ((int)timer/60).ToString() + ":" + ((int)(timer%60) + 1).ToString("D2");
 
-        if(timer < 0f && !clear) {
+        if(timer < 0f && !clear && !gameover) {
             TimerText.text = "0:00";
             StartCoroutine("GameClear");
             //GameClear();
         }
 
-        /*if(pause){
-            soundmanager.master = Master.value;
-            soundmanager.se = SE.value;
-            soundmanager.bgm = BGM.value;
+        if(pause){
+            Master.value = soundmanager.master;
+            SE.value = soundmanager.se;
+            BGM.value = soundmanager.bgm;
         }
         else {
-            audiosource_SE = Master.value * SE.value;
-            audiosource_BGM = Master.value * BGM.value;
-        }*/
-
-        audiosource_SE.volume = Master.value * SE.value;
-        audiosource_BGM.volume = Master.value * BGM.value;
+            audiosource_SE.volume = Master.value * SE.value;
+        }
 
         if((Input.GetMouseButtonDown(0) && ScoreScreen[0].activeSelf) && (clear || gameover)){
             ScoreScreen[0].SetActive(false);
