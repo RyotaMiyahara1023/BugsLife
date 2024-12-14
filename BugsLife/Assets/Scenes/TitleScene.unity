@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeButton: {fileID: 1189586846}
+  AD: {fileID: 930756047}
 --- !u!114 &13986430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3219,6 +3220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebe47c1c4cc174d48829d98b37bd5dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AD: {fileID: 930756047}
   panels:
   - {fileID: 1362063146}
   - {fileID: 13986428}
@@ -3430,6 +3432,8 @@ MonoBehaviour:
   parentObject: {fileID: 0}
   textObject: {fileID: 0}
   buttonObjects: []
+  score: 0
+  sound: 0
 --- !u!114 &555759489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3443,6 +3447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeButton: {fileID: 0}
+  AD: {fileID: 0}
 --- !u!114 &555759490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5343,6 +5348,10 @@ MonoBehaviour:
   buttonObjects:
   - {fileID: 225797629}
   - {fileID: 1304073554}
+  - {fileID: 1109041320}
+  - {fileID: 1189586845}
+  score: 0
+  sound: 0
 --- !u!4 &930756048
 Transform:
   m_ObjectHideFlags: 0
@@ -6009,6 +6018,8 @@ MonoBehaviour:
   parentObject: {fileID: 0}
   textObject: {fileID: 0}
   buttonObjects: []
+  score: 0
+  sound: 0
 --- !u!114 &1034189542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6022,6 +6033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeButton: {fileID: 0}
+  AD: {fileID: 0}
 --- !u!114 &1034189543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7304,6 +7316,8 @@ MonoBehaviour:
   parentObject: {fileID: 0}
   textObject: {fileID: 0}
   buttonObjects: []
+  score: 0
+  sound: 0
 --- !u!1 &1256241584
 GameObject:
   m_ObjectHideFlags: 0
@@ -7836,6 +7850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeButton: {fileID: 0}
+  AD: {fileID: 0}
 --- !u!1 &1324913809
 GameObject:
   m_ObjectHideFlags: 0
@@ -8041,6 +8056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeButton: {fileID: 1109041322}
+  AD: {fileID: 930756047}
 --- !u!1 &1371709378
 GameObject:
   m_ObjectHideFlags: 0
@@ -11913,6 +11929,8 @@ MonoBehaviour:
   parentObject: {fileID: 0}
   textObject: {fileID: 0}
   buttonObjects: []
+  score: 0
+  sound: 0
 --- !u!114 &1981366252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11926,6 +11944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeButton: {fileID: 0}
+  AD: {fileID: 0}
 --- !u!114 &1981366253
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,11 +3,12 @@ using UnityEngine.UI;
 
 public class PanelCloser : MonoBehaviour
 {
-    public Button closeButton; // •Â‚¶‚éƒ{ƒ^ƒ“‚ğƒAƒ^ƒbƒ`
+    public Button closeButton; // ï¿½Â‚ï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½^ï¿½bï¿½`
+    [SerializeField] ActivateParentAndDeactivateText AD;
 
     void Start()
     {
-        // ƒ{ƒ^ƒ“‚ªİ’è‚³‚ê‚Ä‚¢‚ê‚ÎAƒNƒŠƒbƒNƒCƒxƒ“ƒg‚ğ“o˜^
+        // ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½İ’è‚³ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ÎAï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½oï¿½^
         if (closeButton != null)
         {
             closeButton.onClick.AddListener(ClosePanel);
@@ -18,10 +19,12 @@ public class PanelCloser : MonoBehaviour
         }
     }
 
-    // ƒpƒlƒ‹‚ğ•Â‚¶‚éˆ—
+    // ï¿½pï¿½lï¿½ï¿½ï¿½ï¿½Â‚ï¿½ï¿½éˆï¿½ï¿½
     void ClosePanel()
     {
-        gameObject.SetActive(false); // ©g‚ÌGameObject‚ğ”ñ•\¦‚É‚·‚é
+        gameObject.SetActive(false); // ï¿½ï¿½ï¿½gï¿½ï¿½GameObjectï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½
+        if(gameObject.name.Equals("SoundPanel")) AD.sound = false;
+        if(gameObject.name.Equals("ScorePanel")) AD.score = false;
         Debug.Log($"{gameObject.name} is now closed.");
     }
 }

@@ -1,25 +1,27 @@
 using UnityEngine;
-using UnityEngine.EventSystems; // •K—v: UIƒCƒxƒ“ƒgƒVƒXƒeƒ€‚Ì‘€ì‚Ég—p
+using UnityEngine.EventSystems; // ï¿½Kï¿½v: UIï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Ì‘ï¿½ï¿½ï¿½Égï¿½p
 
 public class ActivateParentAndDeactivateText : MonoBehaviour
 {
-    public GameObject parentObject; // eƒIƒuƒWƒFƒNƒgi”ñƒAƒNƒeƒBƒu‚É‚³‚ê‚éƒIƒuƒWƒFƒNƒgj
-    public GameObject textObject;   // ”ñƒAƒNƒeƒBƒu‚É‚·‚éTextƒIƒuƒWƒFƒNƒg
-    public GameObject[] buttonObjects; // •¡”‚Ìƒ{ƒ^ƒ“ƒIƒuƒWƒFƒNƒg
+    public GameObject parentObject; // ï¿½eï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½iï¿½ï¿½Aï¿½Nï¿½eï¿½Bï¿½uï¿½É‚ï¿½ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½j
+    public GameObject textObject;   // ï¿½ï¿½Aï¿½Nï¿½eï¿½Bï¿½uï¿½É‚ï¿½ï¿½ï¿½Textï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½g
+    public GameObject[] buttonObjects; // ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒ{ï¿½^ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½g
+    public bool score;
+    public bool sound;
 
     void Update()
     {
-        // ¶ƒNƒŠƒbƒN‚ğŒŸo
-        if (Input.GetMouseButtonDown(0))
+        // ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½o
+        if (Input.GetMouseButtonDown(0) && !score && !sound)
         {
-            // ƒNƒŠƒbƒN‚ªƒ{ƒ^ƒ“ã‚Å‚ ‚ê‚Îˆ—‚ğƒXƒLƒbƒv
+            // ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½Îï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Lï¿½bï¿½v
             if (IsButtonClicked())
             {
                 Debug.Log("A button was clicked. Skipping reaction.");
                 return;
             }
 
-            // ƒ{ƒ^ƒ“ˆÈŠO‚ğƒNƒŠƒbƒN‚µ‚½ê‡‚Íˆ—‚ğÀs
+            // ï¿½{ï¿½^ï¿½ï¿½ï¿½ÈŠOï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½Íï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½s
             ActivateParent();
             DeactivateText();
         }
@@ -33,7 +35,7 @@ public class ActivateParentAndDeactivateText : MonoBehaviour
             return;
         }
 
-        // eƒIƒuƒWƒFƒNƒg‚ğƒAƒNƒeƒBƒu‚É‚·‚é
+        // ï¿½eï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½Aï¿½Nï¿½eï¿½Bï¿½uï¿½É‚ï¿½ï¿½ï¿½
         parentObject.SetActive(true);
         Debug.Log("Parent object has been activated.");
     }
@@ -46,42 +48,42 @@ public class ActivateParentAndDeactivateText : MonoBehaviour
             return;
         }
 
-        // TextƒIƒuƒWƒFƒNƒg‚ğ”ñƒAƒNƒeƒBƒu‚É‚·‚é
+        // Textï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½Aï¿½Nï¿½eï¿½Bï¿½uï¿½É‚ï¿½ï¿½ï¿½
         textObject.SetActive(false);
         Debug.Log("Text object has been deactivated.");
     }
 
     private bool IsButtonClicked()
     {
-        // ƒNƒŠƒbƒN‚ªUI—v‘f‚Ìã‚©‚ğŠm”F
+        // ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½UIï¿½vï¿½fï¿½Ìã‚©ï¿½ï¿½ï¿½mï¿½F
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            return false; // ‚»‚à‚»‚àUI‚ÌŠO‚È‚ç”½‰‚µ‚È‚¢
+            return false; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½UIï¿½ÌŠOï¿½È‚ç”½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
         }
 
-        // ƒNƒŠƒbƒN‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚ğæ“¾
+        // ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ê‚½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½æ“¾
         PointerEventData pointerData = new PointerEventData(EventSystem.current)
         {
             position = Input.mousePosition
         };
 
-        // ƒNƒŠƒbƒN‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚ğƒŒƒCƒLƒƒƒXƒg‚Åæ“¾
+        // ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ê‚½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½Lï¿½ï¿½ï¿½Xï¿½gï¿½Åæ“¾
         var raycastResults = new System.Collections.Generic.List<RaycastResult>();
         EventSystem.current.RaycastAll(pointerData, raycastResults);
 
-        // ƒŒƒCƒLƒƒƒXƒgŒ‹‰Ê‚ğŠm”F
+        // ï¿½ï¿½ï¿½Cï¿½Lï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Ê‚ï¿½ï¿½mï¿½F
         foreach (var result in raycastResults)
         {
             foreach (GameObject button in buttonObjects)
             {
                 if (result.gameObject == button)
                 {
-                    // ƒNƒŠƒbƒN‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚ªƒ{ƒ^ƒ“ƒŠƒXƒg‚Ì’†‚ÉŠÜ‚Ü‚ê‚Ä‚¢‚ê‚Îtrue
+                    // ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ê‚½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½gï¿½Ì’ï¿½ï¿½ÉŠÜ‚Ü‚ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½true
                     return true;
                 }
             }
         }
 
-        return false; // ƒ{ƒ^ƒ“‚Å‚Í‚È‚¢ê‡
+        return false; // ï¿½{ï¿½^ï¿½ï¿½ï¿½Å‚Í‚È‚ï¿½ï¿½ê‡
     }
 }

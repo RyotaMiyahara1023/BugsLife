@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PanelManager : MonoBehaviour
 {
+    [SerializeField] ActivateParentAndDeactivateText AD;
     public GameObject[] panels; // �����̃p�l�����Ǘ�
 
     public void ShowPanel(int panelIndex)
@@ -16,7 +17,11 @@ public class PanelManager : MonoBehaviour
         if (panelIndex >= 0 && panelIndex < panels.Length)
         {
             panels[panelIndex].SetActive(true);
-            if(panelIndex == 1) GameObject.Find("Manager").GetComponent<Ranking>().DispRank();
+            if(panelIndex == 0) AD.sound = true;
+            if(panelIndex == 1) {
+                GameObject.Find("Manager").GetComponent<Ranking>().DispRank();
+                AD.score = true;
+            }
             Debug.Log($"Panel {panelIndex} activated");
         }
     }

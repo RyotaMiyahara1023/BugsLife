@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject StreetNameImage;
     public GameObject OtakuGenerater;
     float time = 0f;
-    float timer = 100f;
+    float timer = 20f;
     public bool pause;
     public bool clear;
     public bool gameover;
