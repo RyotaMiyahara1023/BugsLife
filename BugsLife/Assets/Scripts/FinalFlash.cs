@@ -28,7 +28,7 @@ public class FinalFlash : MonoBehaviour
             Destroy(otaku.gameObject);
             Debug.Log("オタクです");
             shutter.conbo++;
-            scoreAdd = 100*((shutter.conbo/10)+1);
+            scoreAdd = 1000*(int)Mathf.Pow(((shutter.conbo/10)+1),2);
             gamemanager.score += scoreAdd;
             gamemanager.StartCoroutine("ScorePlus", scoreAdd);
         }

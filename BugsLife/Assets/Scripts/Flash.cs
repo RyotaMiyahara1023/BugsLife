@@ -39,7 +39,7 @@ public class Flash : MonoBehaviour
             Destroy(gameObject);
             Debug.Log("倒せた");
             shutter.conbo++;
-            scoreAdd = 100*((shutter.conbo/10)+1);
+            scoreAdd = 1000*(int)Mathf.Pow(((shutter.conbo/10)+1),2);
             gamemanager.score += scoreAdd;
             charge.power++;
             charge.SE();
