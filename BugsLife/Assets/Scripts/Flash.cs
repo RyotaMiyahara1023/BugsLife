@@ -14,7 +14,7 @@ public class Flash : MonoBehaviour
     void Start()
     {
         shutter = GameObject.Find("Main Camera").GetComponent<Shutter>();
-        charge = GameObject.Find("Final_Flash").GetComponent<Charge>();
+        charge = GameObject.Find("FinalFlashButton").GetComponent<Charge>();
         gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
         GetComponent<Renderer>().sortingOrder = 1;
     }

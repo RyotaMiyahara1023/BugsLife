@@ -31,7 +31,6 @@ public class Gyro : MonoBehaviour
                 gamemanager.OtakuGenerater.transform.eulerAngles = new Vector3(0f, transform.localEulerAngles.y, 0f);
             }*/
 
-            gy_text.text = "x : " + (transform.localEulerAngles.x).ToString("f1") + " , " + (rot.x).ToString("f1") + "\ny : " + (transform.localEulerAngles.y).ToString("f0") + " , " + (rot.y).ToString("f0") + "\nz : " + (transform.localEulerAngles.z).ToString("f0") + " , " + (rot.z).ToString("f0");
             //gy_text.text = "rot_first:(" + rot_first.x + ", " + rot_first.y + ", " + rot_first.z + ")\nrot:(" + rot.x + ", " + rot.y + ", " + rot.z + ")";
         }
     }
